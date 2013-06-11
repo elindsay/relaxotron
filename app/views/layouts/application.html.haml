@@ -9,12 +9,12 @@
     %script{type: "text/javascript"}
       try{Typekit.load();}catch(e){}
 
-  %body
+  %body.forrest
     .content
-      #header
+      #header.fadeable
         .logo
           = link_to root_path do
-            Relaxotron
+            Placidity
 
       #flash
         - flash.each do |key, value|
@@ -23,7 +23,7 @@
       .main
         = yield
 
-      #footer
-        = link_to "Articles", "#", class: "tk-trajan-sans-pro"
-        = link_to "Some bullshit", "#", class: "tk-trajan-sans-pro"
-        = link_to "Store", "#", class: "tk-trajan-sans-pro"
+      #footer.fadeable
+        = link_to "Articles", "#", class: "tk-vinter-web"
+        = link_to "Some bullshit", "#", class: "tk-vinter-web"
+        = link_to "Store", "#", class: "tk-vinter-web"

@@ -2,12 +2,16 @@
   .jcarousel-clip
     %ul.carousel.jcarousel-list
       %li.jcarousel-item-1
-        %iframe{allowscriptaccess: "always", allowFullScreen: "true", width: "560", height:"315", src: "http://www.youtube.com/embed/zmG8JYiYvgg", frameborder: "0"}
+        %video{width: 800, height: 450, controls: false, loop: true, autoplay: true}
+          %source{src: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4", type:"video/mp4"}
+          Your browser does not support the video tag.
       %li.jcarousel-item-2
-        %iframe{allowscriptaccess: "always", allowFullScreen: "true", width: "560", height:"315", src: "http://www.youtube.com/embed/LIJAsKCLTqc", frameborder: "0"}
+        %video{width: 800, height: 450, controls: false, loop: true, autoplay: false}
+          %source{src: "http://ak4.picdn.net/shutterstock/videos/754483/preview/stock-footage-loopable-space-background-with-spinning-camera-cgi-fps.mp4", type:"video/mp4"}
       %li.jcarousel-item-3
-        %iframe{allowscriptaccess: "always", allowFullScreen: "true", width: "560", height:"315", src: "http://www.youtube.com/embed/K18fDh7nAaw", frameborder: "0"}
-  .jcarousel-prev.tk-trajan-sans-pro
-    PREV
-  .jcarousel-next.tk-trajan-sans-pro
-    NEXT
+        %video{width: 800, height: 450, controls: false, loop: true, autoplay: false}
+          %source{src: "http://ak8.picdn.net/shutterstock/videos/663274/preview/stock-footage-banyue-or-ban-gioc-waterfall-along-vietnamese-and-chinese-board.mp4", type:"video/mp4"}
+  .jcarousel-prev.tk-vinter-web.fadeable
+    Prev
+  .jcarousel-next.tk-vinter-web.fadeable
+    Next
