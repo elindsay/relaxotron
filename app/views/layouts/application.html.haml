@@ -11,10 +11,17 @@
 
   %body.forrest
     .content
-      #header.fadeable
+      #header
         .logo
-          = link_to root_path do
-            Placidity
+          .name
+            = link_to root_path do
+              Placidity
+          .subtext.tk-vinter-web
+            your calm in the storm
+        .menu
+          = link_to "Articles", "#", class: "tk-vinter-web"
+          = link_to "Forum", "#", class: "tk-vinter-web"
+          = link_to "Marketplace", "#", class: "tk-vinter-web"
 
       #flash
         - flash.each do |key, value|
@@ -23,7 +30,4 @@
       .main
         = yield
 
-      #footer.fadeable
-        = link_to "Articles", "#", class: "tk-vinter-web"
-        = link_to "Some bullshit", "#", class: "tk-vinter-web"
-        = link_to "Store", "#", class: "tk-vinter-web"
+      #footer

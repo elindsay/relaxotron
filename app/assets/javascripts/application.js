@@ -14,48 +14,34 @@
 //= require jquery_ujs
 //= require_tree .
 
-var futureFade = 0;
-var fadingIn = false;
-
 function beforeMovement(carousel, item, idx, state)
 {
 }
 function afterMovement(carousel, item, idx, state)
 {
-  $(".jcarousel-item").each( function(index, value) {
-    $(value).find("video").get(0).pause();
+}
+
+function setListeners(init, reload)
+{
+  $(".jcarousel-list li img").click(function(event){
+    var vid_src = $(this).data("video"); 
+    $(".main_video video source")[0].src = vid_src;
+    $(".main_video video").load();
+
   });
-
-  $(".jcarousel-item-"+idx+" video").get(0).play();
-}
-
-function fadeOutFadeables(){
-  $(".fadeable").animate({opacity: 0},500);
-}
-
-function fadeInFadeables(){
-  fadingIn = true;
-  $(".fadeable").animate({opacity: 1},500, function() { fadingIn = false; });
 }
 
 $(document).ready(function() {
-  futureFade = setTimeout(function() { fadeOutFadeables(); }, 3000);
   $('.carousel').jcarousel({
-    scroll: 1,
+    scroll: 2,
     wrap: "both",
     itemVisibleInCallback: {
       onBeforeAnimation:  beforeMovement,
       onAfterAnimation:  afterMovement
-    }
-    
-  });
+    },
+    initCallback: setListeners
 
-  $("body").mousemove(function(){
-    clearTimeout(futureFade);
-    if($(".fadeable").css('opacity') < 1 && !fadingIn){
-      fadeInFadeables();
-    }
-    futureFade = setTimeout(function() { fadeOutFadeables(); }, 3000);
+    
   });
 });
 

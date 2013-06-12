@@ -12,9 +12,19 @@ body
   height: 80px
   padding: 10px
   .logo
-    font-size: 80px
-    a
-      text-decoration: none
+    float: left
+    .name
+      margin-left: -6px
+      font-size: 80px
+      a
+        text-decoration: none
+    .subtext
+      float: left
+      margin-top: -32px
+      margin-left: 1px
+      font-size: 23px
+      color: black
+
 .forrest
   background-color: white
   color: green
@@ -22,20 +32,16 @@ body
     color: green
   .content
     background-color: rgba(255, 255, 255, 0.8)
-  #footer
-    border-top: 1px solid green
-.night
-  background-color: black
-  color: white
-  a
-    color: white
-  .content
-    background-color: rgba(0, 0, 0, 0.8)
-  #footer
-    border-top: 1px solid white
-#footer
+
+.menu
+  float: right
   padding: 10px
+  position: relative
+  top: 74px
   a
     text-decoration: none
-    font-size: 30px
-    padding: 0px 10px
+    color: black
+    font-size: 24px
+    padding: 0px 5px
+    &:hover
+      text-decoration: underline

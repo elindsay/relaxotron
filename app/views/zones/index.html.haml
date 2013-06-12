@@ -1,16 +1,25 @@
+.main_video
+  %video{width: 940, height: 528, controls: true, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
+    %source{src: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4", type:"video/mp4"}
+    HI
+
 .video.jcarousel-container.jcarousel-container-horizontal
   .jcarousel-clip
     %ul.carousel.jcarousel-list
       %li.jcarousel-item-1
-        %video{width: 800, height: 450, controls: false, loop: true, autoplay: true}
-          %source{src: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4", type:"video/mp4"}
-          Your browser does not support the video tag.
+        = image_tag "http://ak8.picdn.net/shutterstock/videos/2765480/preview/stock-footage--k-timelapse-clouds-over-the-green-field-full-hd-x.jpg", data: {video: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4"}
       %li.jcarousel-item-2
-        %video{width: 800, height: 450, controls: false, loop: true, autoplay: false}
-          %source{src: "http://ak4.picdn.net/shutterstock/videos/754483/preview/stock-footage-loopable-space-background-with-spinning-camera-cgi-fps.mp4", type:"video/mp4"}
+        = image_tag "http://ak4.picdn.net/shutterstock/videos/754483/preview/stock-footage-loopable-space-background-with-spinning-camera-cgi-fps.jpg", data: {video: "http://ak4.picdn.net/shutterstock/videos/754483/preview/stock-footage-loopable-space-background-with-spinning-camera-cgi-fps.mp4"}
       %li.jcarousel-item-3
-        %video{width: 800, height: 450, controls: false, loop: true, autoplay: false}
-          %source{src: "http://ak8.picdn.net/shutterstock/videos/663274/preview/stock-footage-banyue-or-ban-gioc-waterfall-along-vietnamese-and-chinese-board.mp4", type:"video/mp4"}
+        = image_tag "http://ak6.picdn.net/shutterstock/videos/663274/preview/stock-footage-banyue-or-ban-gioc-waterfall-along-vietnamese-and-chinese-board.jpg", data: {video: "http://ak8.picdn.net/shutterstock/videos/663274/preview/stock-footage-banyue-or-ban-gioc-waterfall-along-vietnamese-and-chinese-board.mp4"}
+      %li.jcarousel-item-4
+        = image_tag "http://ak2.picdn.net/shutterstock/videos/1920142/preview/stock-footage-sky-lantern-festival.jpg", data: {video: "http://ak2.picdn.net/shutterstock/videos/1920142/preview/stock-footage-sky-lantern-festival.mp4"}
+      %li.jcarousel-item-5
+        = image_tag "http://ak4.picdn.net/shutterstock/videos/711148/preview/stock-footage-nice-sunset-on-tropical-island.jpg", data: {video: "http://ak4.picdn.net/shutterstock/videos/711148/preview/stock-footage-nice-sunset-on-tropical-island.mp4"}
+      %li.jcarousel-item-6
+        = image_tag "http://ak2.picdn.net/shutterstock/videos/2992009/preview/stock-footage-tropical-fish-clownfish.jpg", data: {video: "http://ak2.picdn.net/shutterstock/videos/2992009/preview/stock-footage-tropical-fish-clownfish.mp4"}
+      %li.jcarousel-item-7.last
+        = image_tag "http://ak1.picdn.net/shutterstock/videos/3691247/preview/stock-footage-time-lapse-of-ice-hummocks-lake-baikal-siberia.jpg", data: {video: "http://ak1.picdn.net/shutterstock/videos/3691247/preview/stock-footage-time-lapse-of-ice-hummocks-lake-baikal-siberia.mp4"}
   .jcarousel-prev.tk-vinter-web.fadeable
     Prev
   .jcarousel-next.tk-vinter-web.fadeable
