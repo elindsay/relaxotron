@@ -21,7 +21,7 @@ function afterMovement(carousel, item, idx, state)
 {
 }
 
-function setListeners(init, reload)
+function setVideoListeners(init, reload)
 {
   $(".jcarousel-list li img").click(function(event){
     var vid_src = $(this).data("video"); 
@@ -29,9 +29,58 @@ function setListeners(init, reload)
     $(".main_video video").load();
 
   });
+
+}
+
+function setButtonListeners()
+{
+  $(".audio_loop .loop_select").click(function(event){
+    $("audio").trigger("pause");
+    $(".audio_loop .selected").removeClass("selected");
+    $(this).addClass("selected");
+    var audio_src = $(this).data("audio");
+    if(audio_src != null){
+      $("audio source")[0].src = audio_src;
+      $("audio").load();
+      $("audio").trigger("play");
+    }
+  });
+  $(".video_loop .loop_select").click(function(event){
+    $(".video_loop .selected").removeClass("selected");
+    $(this).addClass("selected");
+    var video_elt = $("video")[0];
+    if (video_elt.requestFullscreen) {
+      video_elt.requestFullscreen();
+    } else if (video_elt.mozRequestFullScreen) {
+      video_elt.mozRequestFullScreen();
+    } else if (video_elt.webkitRequestFullscreen) {
+      video_elt.webkitRequestFullscreen();
+    }
+    var timeLength = $(this).data("length");
+    if(timeLength != null){
+      setTimeout(function() { exitVideo(); }, timeLength*60000);
+    }
+  });
+}
+
+function exitVideo(){
+  $("audio").trigger("pause");
+  var video_elt = $("video")[0];
+  if (video_elt.exitFullscreen) {
+    video_elt.exitFullscreen();
+  } else if (video_elt.mozExitFullscreen) {
+    video_elt.mozExitFullscreen();
+  } else if (video_elt.webkitExitFullscreen) {
+    video_elt.webkitExitFullscreen();
+  }
 }
 
 $(document).ready(function() {
+  setButtonListeners();
+  $(".video_overlay").mouseover(function(){
+    $(this).css("background-color", "rgba(0, 0, 0, 0.5)");
+    $(this).css("color", "white");
+  });
   $('.carousel').jcarousel({
     scroll: 2,
     wrap: "both",
@@ -39,7 +88,7 @@ $(document).ready(function() {
       onBeforeAnimation:  beforeMovement,
       onAfterAnimation:  afterMovement
     },
-    initCallback: setListeners
+    initCallback: setVideoListeners
 
     
   });

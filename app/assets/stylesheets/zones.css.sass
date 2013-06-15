@@ -1,9 +1,48 @@
+@import "compass/css3/border-radius"
+
 .main_video
   padding: 30px 10px
 
-.video
+.video_overlay
+  position: absolute
+  width: 936px
+  height: 228px
+  margin-left: 2px
+  margin-top: -232px
+  background-color: rgba(0, 0, 0, 0.5)
+  color: white
+  z-index: 1
+  .instructions
+    margin: 10px 44px 0px
+    font-size: 26px
+    letter-spacing: 1px
+  .loop_select
+    float: left
+    width: 140px
+    height: 30px
+    font-size: 20px
+    margin: 18px
+    text-align: center
+    padding-top: 5px
+    color: black
+    background-color: rgba(255, 255, 255, 0.4)
+    cursor: pointer
+    +border-radius(4px)
+    
+    &.selected
+      background-color: rgba(255, 255, 255, 1)
+    &:hover
+      background-color: rgba(255, 255, 255, 0.8)
+    &.two_min, &.song_1
+      margin-left: 44px
+  
+
+video 
+  z-index: 0
+
+.video_selector
   width: 940px
-  margin: 20px auto
+  margin: auto
   overflow: hidden
 
 .jcarousel-list

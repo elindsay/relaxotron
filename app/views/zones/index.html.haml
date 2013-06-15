@@ -1,9 +1,41 @@
+.audio
+  %audio{loop: true}
+    %source
 .main_video
-  %video{width: 940, height: 528, controls: true, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
+  %video{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
     %source{src: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4", type:"video/mp4"}
-    HI
+  .video_overlay.tk-museo
+    .audio_loop
+      .instructions.tk-vinter-web
+        Background Audio
+      .song_1.loop_select.selected
+        None
+      .song_2.loop_select{data: {audio: "/assets/wind.mp3"}}
+        Nature Sound
+      .song_3.loop_select{data: {audio: "/assets/hippie_song.mp3"}}
+        Song One
+      .song_4.loop_select
+        Song Two
+      .song_5.loop_select
+        Song Three
+    .video_loop
+      .instructions.tk-vinter-web
+        Play Time
+      .two_min.loop_select.selected{data: {length: 2}}
+        2 Min
+      .five_min.loop_select{data: {length: 5}}
+        5 Min
+      .ten_min.loop_select{data: {length: 10}}
+        10 Min
+      .thirty_min.loop_select{data: {length: 30}}
+        30 Min
+      .invinite.loop_select
+        Infinite 
+      
 
-.video.jcarousel-container.jcarousel-container-horizontal
+
+
+.video_selector.jcarousel-container.jcarousel-container-horizontal
   .jcarousel-clip
     %ul.carousel.jcarousel-list
       %li.jcarousel-item-1
