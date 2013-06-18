@@ -2,40 +2,70 @@
 
 .main_video
   padding: 30px 10px
+  &:hover
+    .video_overlay
+      display: block
 
 .video_overlay
   position: absolute
+  display: none
   width: 936px
   height: 228px
   margin-left: 2px
   margin-top: -232px
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: rgba(0, 0, 0, 0.75)
   color: white
   z-index: 1
-  .instructions
-    margin: 10px 44px 0px
-    font-size: 26px
-    letter-spacing: 1px
-  .loop_select
+  .audio_loop, .video_loop, .video_size_start
     float: left
-    width: 140px
-    height: 30px
-    font-size: 20px
-    margin: 18px
+    width: 312px
+  .instructions
     text-align: center
-    padding-top: 5px
-    color: black
-    background-color: rgba(255, 255, 255, 0.4)
+    font-size: 32px
+    letter-spacing: 2px
+    margin-bottom: 5px
+  .video_loop
+    .loop_select
+      margin-left: 35px
+  .audio_loop
+    .loop_select
+      margin-left: 10px
+  .video_size_start
+    .loop_select
+      margin-left: 0px
+  .loop_select
+    font-size: 22px
+    letter-spacing: 1px
+    color: white
+    padding-left: 60px
+    padding-bottom: 5px
+    cursor: pointer
+    .selector
+      float: left
+      margin: 5px 15px 0px 10px
+      width: 15px
+      height: 15px
+      border: 2px solid white
+      +border-radius(2px)
+    &.selected
+      .selector
+        background-color: green
+    &:hover
+      .selector
+        background-color: green * 1.1
+  .start
+    font-size: 36px
+    background-color: green
+    padding: 20px 50px
+    margin: 10px 10px 10px 64px
+    float: left
+    border: 2px solid white
+    letter-spacing: 2px
     cursor: pointer
     +border-radius(4px)
-    
-    &.selected
-      background-color: rgba(255, 255, 255, 1)
     &:hover
-      background-color: rgba(255, 255, 255, 0.8)
-    &.two_min, &.song_1
-      margin-left: 44px
-  
+      background-color: green*1.1
+
 
 video 
   z-index: 0

@@ -4,33 +4,67 @@
 .main_video
   %video{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
     %source{src: "http://ak9.picdn.net/shutterstock/videos/756892/preview/stock-footage-landscape-blue-sky-timelapse.mp4", type:"video/mp4"}
-  .video_overlay.tk-museo
+  .video_overlay.tk-vinter-web
     .audio_loop
-      .instructions.tk-vinter-web
-        Background Audio
+      .instructions.tk-museo
+        Song
       .song_1.loop_select.selected
+        .selector
+          &nbsp;
         None
       .song_2.loop_select{data: {audio: "/assets/wind.mp3"}}
+        .selector
+          &nbsp;
         Nature Sound
       .song_3.loop_select{data: {audio: "/assets/hippie_song.mp3"}}
+        .selector
+          &nbsp;
         Song One
       .song_4.loop_select
+        .selector
+          &nbsp;
         Song Two
       .song_5.loop_select
+        .selector
+          &nbsp;
         Song Three
     .video_loop
-      .instructions.tk-vinter-web
-        Play Time
+      .instructions.tk-museo
+        Time
       .two_min.loop_select.selected{data: {length: 2}}
+        .selector
+          &nbsp;
         2 Min
       .five_min.loop_select{data: {length: 5}}
+        .selector
+          &nbsp;
         5 Min
       .ten_min.loop_select{data: {length: 10}}
+        .selector
+          &nbsp;
         10 Min
       .thirty_min.loop_select{data: {length: 30}}
+        .selector
+          &nbsp;
         30 Min
       .invinite.loop_select
-        Infinite 
+        .selector
+          &nbsp;
+        Forever
+    .video_size_start
+      .instructions.tk-museo
+        Size
+      .full_screen.loop_select.selected
+        .selector
+          &nbsp;
+        Full Screen
+      .small_screen.loop_select
+        .selector
+          &nbsp;
+        Small Screen
+      .start.tk-museo
+        Start
+
       
 
 
@@ -52,7 +86,7 @@
         = image_tag "http://ak2.picdn.net/shutterstock/videos/2992009/preview/stock-footage-tropical-fish-clownfish.jpg", data: {video: "http://ak2.picdn.net/shutterstock/videos/2992009/preview/stock-footage-tropical-fish-clownfish.mp4"}
       %li.jcarousel-item-7.last
         = image_tag "http://ak1.picdn.net/shutterstock/videos/3691247/preview/stock-footage-time-lapse-of-ice-hummocks-lake-baikal-siberia.jpg", data: {video: "http://ak1.picdn.net/shutterstock/videos/3691247/preview/stock-footage-time-lapse-of-ice-hummocks-lake-baikal-siberia.mp4"}
-  .jcarousel-prev.tk-vinter-web.fadeable
-    Prev
-  .jcarousel-next.tk-vinter-web.fadeable
-    Next
+  -#.jcarousel-prev.tk-vinter-web.fadeable
+  -#  Prev
+  -#.jcarousel-next.tk-vinter-web.fadeable
+  -#  Next

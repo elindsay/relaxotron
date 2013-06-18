@@ -29,7 +29,6 @@ function setVideoListeners(init, reload)
     $(".main_video video").load();
 
   });
-
 }
 
 function setButtonListeners()
@@ -48,6 +47,18 @@ function setButtonListeners()
   $(".video_loop .loop_select").click(function(event){
     $(".video_loop .selected").removeClass("selected");
     $(this).addClass("selected");
+  });
+  $(".video_size_start .loop_select").click(function(event){
+    $(".video_size_start .selected").removeClass("selected");
+    $(this).addClass("selected");
+  });
+  $(".start").click(function(event){
+    startZone();
+  });
+}
+
+function startZone(){
+  if ($(".full_screen").hasClass("selected")) {
     var video_elt = $("video")[0];
     if (video_elt.requestFullscreen) {
       video_elt.requestFullscreen();
@@ -56,14 +67,16 @@ function setButtonListeners()
     } else if (video_elt.webkitRequestFullscreen) {
       video_elt.webkitRequestFullscreen();
     }
-    var timeLength = $(this).data("length");
-    if(timeLength != null){
-      setTimeout(function() { exitVideo(); }, timeLength*60000);
-    }
-  });
+  } else {
+    console.log("hi");
+  }
+  var timeLength = $(this).data("length");
+  if(timeLength != null){
+    setTimeout(function() { stopZone(); }, timeLength*60000);
+  }
 }
 
-function exitVideo(){
+function stopZone(){
   $("audio").trigger("pause");
   var video_elt = $("video")[0];
   if (video_elt.exitFullscreen) {
@@ -76,9 +89,25 @@ function exitVideo(){
 }
 
 $(document).ready(function() {
+  $("video").bind("loadeddata", function(){
+    $(".video_overlay").show();
+    //$(".video_overlay").fadeOut(2000);
+  });
+  $(".main_video").bind("mouseover", function(){
+    console.log("OVER");
+    if (!$(".video_overlay").is(":visible") && $(".video_overlay:hover").length === 0){
+      //$(".video_overlay").fadeIn(300);
+    }
+  });
+  $(".main_video").bind("mouseout", function(){
+    console.log("OUT");
+    if ($(".video_overlay").is(":visible") && !$(".video_overlay:hover").length > 0){
+      //$(".video_overlay").fadeOut(300);
+    }
+  });
   setButtonListeners();
   $(".video_overlay").mouseover(function(){
-    $(this).css("background-color", "rgba(0, 0, 0, 0.5)");
+    $(this).css("background-color", "rgba(0, 0, 0, 0.75)");
     $(this).css("color", "white");
   });
   $('.carousel').jcarousel({
