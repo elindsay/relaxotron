@@ -90,7 +90,7 @@ function stopZone(){
 
 $(document).ready(function() {
   $("video").bind("loadeddata", function(){
-    $(".video_overlay").show();
+    //$(".video_overlay").show();
     //$(".video_overlay").fadeOut(2000);
   });
   $(".main_video").bind("mouseover", function(){
