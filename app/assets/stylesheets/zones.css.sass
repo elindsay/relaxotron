@@ -1,72 +1,43 @@
-@import "compass/css3/border-radius"
+@import "compass/css3"
+@import "mixins"
 
 .main_video
-  padding: 30px 10px
+  padding: 30px 10px 10px
   &:hover
     .video_overlay
       display: block
 
 .video_overlay
   position: absolute
-  display: none
   width: 936px
-  height: 228px
+  height: 50px
   margin-left: 2px
-  margin-top: -232px
-  background-color: rgba(0, 0, 0, 0.75)
-  color: white
+  margin-top: -52px
+  background-color: rgba(0, 0, 0, 0.4)
   z-index: 1
-  .audio_loop, .video_loop, .video_size_start
-    float: left
-    width: 312px
-  .instructions
-    text-align: center
-    font-size: 32px
-    letter-spacing: 2px
-    margin-bottom: 5px
   .video_loop
-    .loop_select
-      margin-left: 35px
-  .audio_loop
-    .loop_select
-      margin-left: 10px
-  .video_size_start
-    .loop_select
-      margin-left: 0px
-  .loop_select
-    font-size: 22px
-    letter-spacing: 1px
-    color: white
-    padding-left: 60px
-    padding-bottom: 5px
-    cursor: pointer
-    .selector
-      float: left
-      margin: 5px 15px 0px 10px
-      width: 15px
-      height: 15px
-      border: 2px solid white
-      +border-radius(2px)
-    &.selected
-      .selector
-        background-color: green
-    &:hover
-      .selector
-        background-color: green * 1.1
-  .start
-    font-size: 36px
-    background-color: green
-    padding: 20px 50px
-    margin: 10px 10px 10px 64px
+    margin: 0px 403px
+  .play_pause, .modify
     float: left
-    border: 2px solid white
-    letter-spacing: 2px
     cursor: pointer
-    +border-radius(4px)
-    &:hover
-      background-color: green*1.1
-
-
+    font-family: Helvetica, sans-serif
+    font-size: 20px 
+    margin: 13px 10px
+    display: inline-block
+    color: white
+    .play
+      +triangleRight(30px, white)
+      +scale(1.8, 1)
+    .pause
+      .bar_one, .bar_three
+        background-color: white
+        width: 7px
+      .bar_two
+        width: 5px
+      .bar_one, .bar_three, .bar_two
+        float: left
+  .modify
+    padding-top: 4px
 video 
   z-index: 0
 

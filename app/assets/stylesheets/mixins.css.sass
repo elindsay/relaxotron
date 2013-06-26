@@ -1,0 +1,23 @@
+@import "compass/css3"
+ 
+@mixin triangleBase($width)
+    width: 0
+    height: 0
+    border-width: $width / 2
+    border-style: solid
+
+@mixin triangleUp ($width, $color)
+    +triangleBase($width)
+    border-color: transparent transparent $color transparent
+
+@mixin triangleDown ($width, $color)
+    +triangleBase($width)
+    border-color: $color transparent transparent transparent
+
+@mixin triangleRight ($width, $color)
+    +triangleBase($width)
+    border-color: transparent transparent transparent $color
+
+@mixin triangleLeft ($width, $color)
+    +triangleBase($width)
+    border-color: transparent $color transparent transparent

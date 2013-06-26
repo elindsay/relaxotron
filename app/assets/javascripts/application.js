@@ -14,16 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 
-function beforeMovement(carousel, item, idx, state)
-{
-}
-function afterMovement(carousel, item, idx, state)
-{
-}
-
 function setVideoListeners(init, reload)
 {
   $(".jcarousel-list li img").click(function(event){
+    var audio_src = $(this).data("audio");
+    if(audio_src != null){
+      $("audio source")[0].src = audio_src;
+      $("audio").load();
+    }
     var vid_src = $(this).data("video"); 
     $(".main_video video source")[0].src = vid_src;
     $(".main_video video").load();
@@ -33,90 +31,57 @@ function setVideoListeners(init, reload)
 
 function setButtonListeners()
 {
-  $(".audio_loop .loop_select").click(function(event){
-    $("audio").trigger("pause");
-    $(".audio_loop .selected").removeClass("selected");
-    $(this).addClass("selected");
-    var audio_src = $(this).data("audio");
-    if(audio_src != null){
-      $("audio source")[0].src = audio_src;
-      $("audio").load();
-      $("audio").trigger("play");
-    }
-  });
   $(".video_loop .loop_select").click(function(event){
     $(".video_loop .selected").removeClass("selected");
     $(this).addClass("selected");
-  });
-  $(".video_size_start .loop_select").click(function(event){
-    $(".video_size_start .selected").removeClass("selected");
-    $(this).addClass("selected");
-  });
-  $(".start").click(function(event){
-    startZone();
+    var length = $(this).data("length");
+    startZone(length);
   });
 }
 
-function startZone(){
-  if ($(".full_screen").hasClass("selected")) {
-    var video_elt = $("video")[0];
-    if (video_elt.requestFullscreen) {
-      video_elt.requestFullscreen();
-    } else if (video_elt.mozRequestFullScreen) {
-      video_elt.mozRequestFullScreen();
-    } else if (video_elt.webkitRequestFullscreen) {
-      video_elt.webkitRequestFullscreen();
-    }
-  } else {
-    console.log("hi");
-  }
-  var timeLength = $(this).data("length");
+function fadeOutDistractions(){
+  $(".fadeable").fadeOut();
+  $("video").css("width: 100%");
+}
+
+function startZone(timeLength){
+
+  fadeOutDistractions();
   if(timeLength != null){
-    setTimeout(function() { stopZone(); }, timeLength*60000);
+    setTimeout(function() { pauseCurrent(); }, timeLength*60000);
   }
 }
 
-function stopZone(){
+function playCurrent(){
+  $("video").get(0).play();
+  $("audio").trigger("play");
+  $(".play_pause .play").addClass("hidden");
+  $(".play_pause .pause").removeClass("hidden");
+}
+
+function pauseCurrent(){
+  $("video").get(0).pause();
   $("audio").trigger("pause");
-  var video_elt = $("video")[0];
-  if (video_elt.exitFullscreen) {
-    video_elt.exitFullscreen();
-  } else if (video_elt.mozExitFullscreen) {
-    video_elt.mozExitFullscreen();
-  } else if (video_elt.webkitExitFullscreen) {
-    video_elt.webkitExitFullscreen();
-  }
+  $(".play_pause .pause").addClass("hidden");
+  $(".play_pause .play").removeClass("hidden");
 }
-
 $(document).ready(function() {
   $("video").bind("loadeddata", function(){
-    //$(".video_overlay").show();
-    //$(".video_overlay").fadeOut(2000);
+    $("audio").trigger("play");
   });
-  $(".main_video").bind("mouseover", function(){
-    console.log("OVER");
-    if (!$(".video_overlay").is(":visible") && $(".video_overlay:hover").length === 0){
-      //$(".video_overlay").fadeIn(300);
-    }
+
+  $(".play_pause .pause").click(function(event){
+    pauseCurrent();
   });
-  $(".main_video").bind("mouseout", function(){
-    console.log("OUT");
-    if ($(".video_overlay").is(":visible") && !$(".video_overlay:hover").length > 0){
-      //$(".video_overlay").fadeOut(300);
-    }
+
+  $(".play_pause .play").click(function(event){
+    playCurrent();
   });
+
   setButtonListeners();
-  $(".video_overlay").mouseover(function(){
-    $(this).css("background-color", "rgba(0, 0, 0, 0.75)");
-    $(this).css("color", "white");
-  });
   $('.carousel').jcarousel({
     scroll: 2,
     wrap: "both",
-    itemVisibleInCallback: {
-      onBeforeAnimation:  beforeMovement,
-      onAfterAnimation:  afterMovement
-    },
     initCallback: setVideoListeners
 
     

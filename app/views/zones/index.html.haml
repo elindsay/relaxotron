@@ -1,81 +1,34 @@
 .audio
   %audio{loop: true}
-    %source
+    %source{src: "/assets/wind.mp3"}
 .main_video
   %video{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
-    %source{src: "http://ak0.picdn.net/shutterstock/videos/776929/preview/stock-footage-wheat-field.mp4", type:"video/mp4"}
-  .video_overlay.tk-vinter-web
-    .audio_loop
-      .instructions.tk-museo
-        Song
-      .song_1.loop_select.selected
-        .selector
-          &nbsp;
-        None
-      .song_2.loop_select{data: {audio: "/assets/wind.mp3"}}
-        .selector
-          &nbsp;
-        Nature Sound
-      .song_3.loop_select{data: {audio: "/assets/hippie_song.mp3"}}
-        .selector
-          &nbsp;
-        Song One
-      .song_4.loop_select
-        .selector
-          &nbsp;
-        Song Two
-      .song_5.loop_select
-        .selector
-          &nbsp;
-        Song Three
+    %source{src: "/assets/potomac.m4v", type:"video/mp4"}
+  .video_overlay
     .video_loop
-      .instructions.tk-museo
-        Time
-      .two_min.loop_select.selected{data: {length: 2}}
-        .selector
+      .play_pause
+        .play.hidden
           &nbsp;
-        2 Min
-      .five_min.loop_select{data: {length: 5}}
-        .selector
-          &nbsp;
-        5 Min
-      .ten_min.loop_select{data: {length: 10}}
-        .selector
-          &nbsp;
-        10 Min
-      .thirty_min.loop_select{data: {length: 30}}
-        .selector
-          &nbsp;
-        30 Min
-      .invinite.loop_select
-        .selector
-          &nbsp;
-        Forever
-    .video_size_start
-      .instructions.tk-museo
-        Size
-      .full_screen.loop_select.selected
-        .selector
-          &nbsp;
-        Full Screen
-      .small_screen.loop_select
-        .selector
-          &nbsp;
-        Small Screen
-      .start.tk-museo
-        Start
+        .pause
+          .bar_one
+            &nbsp;
+          .bar_two
+            &nbsp;
+          .bar_three
+            &nbsp;
 
-      
-
-
+      .modify
+        Modify
 
 .video_selector.jcarousel-container.jcarousel-container-horizontal
   .jcarousel-clip
     %ul.carousel.jcarousel-list
-      %li.jcarousel-item-1
-        = image_tag "http://ak0.picdn.net/shutterstock/videos/776929/preview/1.jpg", data: {video: "http://ak0.picdn.net/shutterstock/videos/776929/preview/stock-footage-wheat-field.mp4"}
+      %li.jcarousel-item-0
+        = image_tag "potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/wind.mp3"}
       %li.jcarousel-item-2
-        = image_tag "http://ak1.picdn.net/shutterstock/videos/755332/preview/1.jpg", data: {video: "http://ak1.picdn.net/shutterstock/videos/755332/preview/stock-footage-times-square-time-lapse.mp4"}
+        = image_tag "http://ak0.picdn.net/shutterstock/videos/776929/preview/1.jpg", data: {video: "http://ak0.picdn.net/shutterstock/videos/776929/preview/stock-footage-wheat-field.mp4", audio: "/assets/wind.mp3"}
+      %li.jcarousel-item-2
+        = image_tag "http://ak1.picdn.net/shutterstock/videos/755332/preview/1.jpg", data: {video: "http://ak1.picdn.net/shutterstock/videos/755332/preview/stock-footage-times-square-time-lapse.mp4", audio: "/assets/hippie_song.mp3"}
       %li.jcarousel-item-3
         = image_tag "http://ak3.picdn.net/shutterstock/videos/3298709/preview/1.jpg", data: {video: "http://ak3.picdn.net/shutterstock/videos/3298709/preview/stock-footage-giant-daisies-filling-a-verdant-wildflower-meadow-in-green-rolling-landscape-under-a-big-blue.mp4"}
       %li.jcarousel-item-4
