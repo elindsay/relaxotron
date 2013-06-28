@@ -36,17 +36,24 @@ function setButtonListeners()
     $(this).addClass("selected");
     var length = $(this).data("length");
     startZone(length);
+    console.log("HI")
   });
 }
 
 function fadeOutDistractions(){
   $(".fadeable").fadeOut();
-  $("video").css("width: 100%");
+  $(".logo").fadeOut();
+}
+
+function fadeInDistractions(){
+  $(".logo").fadeIn();
+  $(".fadeable").fadeIn();
 }
 
 function startZone(timeLength){
 
   fadeOutDistractions();
+  playCurrent();
   if(timeLength != null){
     setTimeout(function() { pauseCurrent(); }, timeLength*60000);
   }
@@ -64,6 +71,7 @@ function pauseCurrent(){
   $("audio").trigger("pause");
   $(".play_pause .pause").addClass("hidden");
   $(".play_pause .play").removeClass("hidden");
+  fadeInDistractions();
 }
 $(document).ready(function() {
   $("video").bind("loadeddata", function(){

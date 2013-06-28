@@ -6,6 +6,18 @@
     %source{src: "/assets/potomac.m4v", type:"video/mp4"}
   .video_overlay
     .video_loop
+      .two_min.loop_select.selected{data: {length: 2}}
+        2 Min
+      .five_min.loop_select{data: {length: 5}}
+        5 Min
+      .ten_min.loop_select{data: {length: 10}}
+        10 Min
+      .thirty_min.loop_select{data: {length: 30}}
+        30 Min
+      .invinite.loop_select
+        Forever
+      
+      
       .play_pause
         .play.hidden
           &nbsp;
@@ -17,10 +29,10 @@
           .bar_three
             &nbsp;
 
-      .modify
-        Modify
+      -#.modify
+      -#  Modify
 
-.video_selector.jcarousel-container.jcarousel-container-horizontal
+.video_selector.jcarousel-container.jcarousel-container-horizontal.fadeable
   .jcarousel-clip
     %ul.carousel.jcarousel-list
       %li.jcarousel-item-0
