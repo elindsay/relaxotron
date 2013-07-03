@@ -1,23 +1,11 @@
 .audio
   %audio{loop: true}
-    %source{src: "/assets/wind.mp3"}
+    %source{src: "/assets/audio/large_waterfall.wav"}
 .main_video
-  %video{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: "/assets/loadingAnimation.gif"}
+  %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto", poster: "/assets/posters/potomac.jpg"}
     %source{src: "/assets/potomac.m4v", type:"video/mp4"}
   .video_overlay
     .video_loop
-      .two_min.loop_select.selected{data: {length: 2}}
-        2 Min
-      .five_min.loop_select{data: {length: 5}}
-        5 Min
-      .ten_min.loop_select{data: {length: 10}}
-        10 Min
-      .thirty_min.loop_select{data: {length: 30}}
-        30 Min
-      .invinite.loop_select
-        Forever
-      
-      
       .play_pause
         .play.hidden
           &nbsp;
@@ -29,24 +17,30 @@
           .bar_three
             &nbsp;
 
-      -#.modify
-      -#  Modify
+      .two_min.loop_select.selected{data: {length: 2}}
+        2 Min
+      .five_min.loop_select{data: {length: 5}}
+        5 Min
+      .ten_min.loop_select{data: {length: 10}}
+        10 Min
+      .thirty_min.loop_select{data: {length: 30}}
+        30 Min
+      .invinite.loop_select
+        Forever
 
 .video_selector.jcarousel-container.jcarousel-container-horizontal.fadeable
   .jcarousel-clip
     %ul.carousel.jcarousel-list
       %li.jcarousel-item-0
-        = image_tag "potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/wind.mp3"}
+        = image_tag "posters/potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/audio/large_waterfall.wav"}
       %li.jcarousel-item-2
-        = image_tag "http://ak0.picdn.net/shutterstock/videos/776929/preview/1.jpg", data: {video: "http://ak0.picdn.net/shutterstock/videos/776929/preview/stock-footage-wheat-field.mp4", audio: "/assets/wind.mp3"}
+        = image_tag "posters/field.jpg", data: {video: "/assets/field.m4v", audio: "/assets/audio/afrika_c.mp3"}
       %li.jcarousel-item-2
-        = image_tag "http://ak1.picdn.net/shutterstock/videos/755332/preview/1.jpg", data: {video: "http://ak1.picdn.net/shutterstock/videos/755332/preview/stock-footage-times-square-time-lapse.mp4", audio: "/assets/hippie_song.mp3"}
+        = image_tag "posters/london.jpg", data: {video: "/assets/london.m4v", audio: "/assets/audio/etherealmotion159.mp3"}
       %li.jcarousel-item-3
-        = image_tag "http://ak3.picdn.net/shutterstock/videos/3298709/preview/1.jpg", data: {video: "http://ak3.picdn.net/shutterstock/videos/3298709/preview/stock-footage-giant-daisies-filling-a-verdant-wildflower-meadow-in-green-rolling-landscape-under-a-big-blue.mp4"}
+        = image_tag "posters/slow_water.jpg", data: {video: "/assets/slow_water.m4v", audio: "assets/audio/birdies.wav"}
       %li.jcarousel-item-4
-        = image_tag "http://ak7.picdn.net/shutterstock/videos/3775625/preview/1.jpg", data: {video: "http://ak7.picdn.net/shutterstock/videos/3775625/preview/stock-footage-northern-lights-aurora-borealis-reflected-on-a-lake-timelapse-in-iceland.mp4"}
-      %li.jcarousel-item-5
-        = image_tag "http://ak.picdn.net/shutterstock/videos/2673485/preview/1.jpg", data: {video: "http://ak.picdn.net/shutterstock/videos/2673485/preview/stock-footage-rainbow-above-victoria-falls-south-africa.mp4"}
+        = image_tag "posters/northern_lights.jpg", data: {video: "/assets/northern_lights.m4v", audio: "assets/audio/cloud_two.mp3"}
   -#.jcarousel-prev.tk-vinter-web.fadeable
   -#  Prev
   -#.jcarousel-next.tk-vinter-web.fadeable

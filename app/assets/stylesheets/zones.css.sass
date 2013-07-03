@@ -6,6 +6,7 @@
   &:hover
     .video_overlay
       display: block
+    margin-bottom: 3px
 
 .video_overlay
   position: relative
@@ -13,7 +14,7 @@
   display: none
   width: 100%
   height: 50px
-  margin-top: -50px
+  margin-top: -53px
   background-color: rgba(0, 0, 0, 0.4)
   z-index: 1
   .video_loop
@@ -33,12 +34,14 @@
     cursor: pointer
     font-family: Helvetica, sans-serif
     font-size: 20px 
-    margin: 13px 10px 13px 100px
+    margin: 13px 10px 13px 185px
     display: inline-block
     color: white
     .play
       float: left
-      +triangleRight(30px, white)
+      margin-top: -2px
+      margin-right: -20px
+      +triangleRight(28px, white)
       +scale(1.8, 1)
     .pause
       float: left

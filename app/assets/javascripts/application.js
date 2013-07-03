@@ -24,8 +24,9 @@ function setVideoListeners(init, reload)
     }
     var vid_src = $(this).data("video"); 
     $(".main_video video source")[0].src = vid_src;
+    $(".main_video video")[0].poster = $(this)[0].src;
     $(".main_video video").load();
-
+    playCurrent();
   });
 }
 
@@ -75,7 +76,7 @@ function pauseCurrent(){
 }
 $(document).ready(function() {
   $("video").bind("loadeddata", function(){
-    $("audio").trigger("play");
+    playCurrent();
   });
 
   $(".play_pause .pause").click(function(event){
