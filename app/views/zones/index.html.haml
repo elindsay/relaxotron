@@ -28,20 +28,15 @@
       .invinite.loop_select
         Forever
 
-.video_selector.jcarousel-container.jcarousel-container-horizontal.fadeable
-  .jcarousel-clip
-    %ul.carousel.jcarousel-list
-      %li.jcarousel-item-0
-        = image_tag "posters/potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/audio/large_waterfall.wav"}
-      %li.jcarousel-item-2
-        = image_tag "posters/field.jpg", data: {video: "/assets/field.m4v", audio: "/assets/audio/afrika_c.mp3"}
-      %li.jcarousel-item-2
-        = image_tag "posters/london.jpg", data: {video: "/assets/london.m4v", audio: "/assets/audio/etherealmotion159.mp3"}
-      %li.jcarousel-item-3
-        = image_tag "posters/slow_water.jpg", data: {video: "/assets/slow_water.m4v", audio: "assets/audio/birdies.wav"}
-      %li.jcarousel-item-4
-        = image_tag "posters/northern_lights.jpg", data: {video: "/assets/northern_lights.m4v", audio: "assets/audio/cloud_two.mp3"}
-  -#.jcarousel-prev.tk-vinter-web.fadeable
-  -#  Prev
-  -#.jcarousel-next.tk-vinter-web.fadeable
-  -#  Next
+.video_selector.fadeable
+  %ul.selector
+    %li.item-0
+      = image_tag "posters/potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/audio/large_waterfall.wav"}
+    %li.item-2
+      = image_tag "posters/field.jpg", data: {video: "/assets/field.m4v", audio: "/assets/audio/afrika_c.mp3"}
+    %li.item-2
+      = image_tag "posters/london.jpg", data: {video: "/assets/london.m4v", audio: "/assets/audio/etherealmotion159.mp3"}
+    %li.item-3
+      = image_tag "posters/slow_water.jpg", data: {video: "/assets/slow_water.m4v", audio: "assets/audio/birdies.wav"}
+    %li.item-4.last
+      = image_tag "posters/northern_lights.jpg", data: {video: "/assets/northern_lights.m4v", audio: "assets/audio/cloud_two.mp3"}

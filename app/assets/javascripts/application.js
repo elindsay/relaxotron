@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require_tree .
 
-function setVideoListeners(init, reload)
+function setButtonListeners()
 {
-  $(".jcarousel-list li img").click(function(event){
+  $("li img").click(function(event){
     var audio_src = $(this).data("audio");
     if(audio_src != null){
       $("audio source")[0].src = audio_src;
@@ -27,17 +27,6 @@ function setVideoListeners(init, reload)
     $(".main_video video")[0].poster = $(this)[0].src;
     $(".main_video video").load();
     playCurrent();
-  });
-}
-
-function setButtonListeners()
-{
-  $(".video_loop .loop_select").click(function(event){
-    $(".video_loop .selected").removeClass("selected");
-    $(this).addClass("selected");
-    var length = $(this).data("length");
-    startZone(length);
-    console.log("HI")
   });
 }
 
@@ -88,13 +77,7 @@ $(document).ready(function() {
   });
 
   setButtonListeners();
-  $('.carousel').jcarousel({
-    scroll: 2,
-    wrap: "both",
-    initCallback: setVideoListeners
 
-    
-  });
 });
 
 
