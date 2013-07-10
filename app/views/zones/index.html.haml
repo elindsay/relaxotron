@@ -3,7 +3,8 @@
     %source{src: "/assets/audio/large_waterfall.wav"}
 .main_video
   %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto", poster: "/assets/posters/potomac.jpg"}
-    %source{src: "/assets/potomac.m4v", type:"video/mp4"}
+    %source{src: "/assets/potomac.m4v", type: "video/mp4", class: "mp4"}
+    %source{src: "/assets/potomac.ogv", type: "video/ogg", class: "ogg"}
   .video_overlay
     .video_loop
       .play_pause
@@ -31,12 +32,12 @@
 .video_selector.fadeable
   %ul.selector
     %li.item-0
-      = image_tag "posters/potomac.jpg", data: {video: "/assets/potomac.m4v", audio: "/assets/audio/large_waterfall.wav"}
+      = image_tag "posters/potomac.jpg", data: {video: "/assets/potomac", audio: "/assets/audio/large_waterfall.wav"}
     %li.item-2
-      = image_tag "posters/field.jpg", data: {video: "/assets/field.m4v", audio: "/assets/audio/afrika_c.mp3"}
+      = image_tag "posters/field.jpg", data: {video: "/assets/field", audio: "/assets/audio/afrika_c.wav"}
     %li.item-2
-      = image_tag "posters/london.jpg", data: {video: "/assets/london.m4v", audio: "/assets/audio/etherealmotion159.mp3"}
+      = image_tag "posters/london.jpg", data: {video: "/assets/london", audio: "/assets/audio/etherealmotion159.wav"}
     %li.item-3
-      = image_tag "posters/slow_water.jpg", data: {video: "/assets/slow_water.m4v", audio: "assets/audio/birdies.wav"}
+      = image_tag "posters/slow_water.jpg", data: {video: "/assets/slow_water", audio: "assets/audio/birdies.wav"}
     %li.item-4.last
-      = image_tag "posters/northern_lights.jpg", data: {video: "/assets/northern_lights.m4v", audio: "assets/audio/cloud_two.mp3"}
+      = image_tag "posters/northern_lights.jpg", data: {video: "/assets/northern_lights", audio: "assets/audio/cloud_two.wav"}

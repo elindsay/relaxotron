@@ -23,7 +23,8 @@ function setButtonListeners()
       $("audio").load();
     }
     var vid_src = $(this).data("video"); 
-    $(".main_video video source")[0].src = vid_src;
+    $(".main_video video source.mp4")[0].src = vid_src + ".m4v";
+    $(".main_video video source.ogg")[0].src = vid_src + ".ogv";
     $(".main_video video")[0].poster = $(this)[0].src;
     $(".main_video video").load();
     playCurrent();
