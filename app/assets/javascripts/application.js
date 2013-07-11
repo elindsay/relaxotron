@@ -29,6 +29,13 @@ function setButtonListeners()
     $(".main_video video").load();
     playCurrent();
   });
+  $(".video_loop .loop_select").click(function(event){
+    $(".video_loop .selected").removeClass("selected");
+    $(this).addClass("selected");
+    var length = $(this).data("length");
+    startZone(length);
+  });
+  
 }
 
 function fadeOutDistractions(){
