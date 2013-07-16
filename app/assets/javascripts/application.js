@@ -39,21 +39,13 @@ function setButtonListeners()
 }
 
 function setMouseListeners() {
-  $(".main_video").mouseover(function(){
-    if (!$(".video_overlay").is(":visible") || $(".video_overlay").opacity < "1"){
-      $(".video_overlay").fadeIn(500);
-    }
-  });
   $(".main_video").mousemove(function(){
+    clearTimeout($.data(document.body, "lastVideoMouse"));
+    var videoOverlayTimeout = setTimeout(function(){$(".video_overlay").fadeOut(500);}, 1500);
+    $.data(document.body, "lastVideoMouse", videoOverlayTimeout);
     if (!$(".video_overlay").is(":visible") || $(".video_overlay").opacity < "1"){
       $(".video_overlay").fadeIn(500);
     }
-  });
-  $(".main_video").mouseout(function(){
-    if (!$(".video_overlay").is(":hover") && !$(".main_video").is(":hover")){
-      $(".video_overlay").fadeOut(500);
-    }
-
   });
 }
 
@@ -91,6 +83,7 @@ function pauseCurrent(){
   fadeInDistractions();
 }
 $(document).ready(function() {
+  $.data(document.body, "lastVideoMouse", null);
   $("video").bind("loadeddata", function(){
     playCurrent();
     setTimeout(function() { $(".video_overlay").fadeOut(500); }, 2000);
