@@ -38,6 +38,20 @@ function setButtonListeners()
   
 }
 
+function setMouseListeners() {
+  $(".main_video").mousemove(function(){
+    if (!$(".video_overlay").is(":visible")){
+      $(".video_overlay").fadeIn(500);
+    }
+  });
+  $(".main_video").mouseout(function(){
+    if (!$(".video_overlay").is(":hover")){
+      $(".video_overlay").fadeOut(500);
+    }
+
+  });
+}
+
 function fadeOutDistractions(){
   $(".fadeable").fadeOut();
   $(".logo").fadeOut();
@@ -83,8 +97,10 @@ $(document).ready(function() {
   $(".play_pause .play").click(function(event){
     playCurrent();
   });
+  setTimeout(function() { $(".video_overlay").fadeOut(500); }, 1000);
 
   setButtonListeners();
+  setMouseListeners();
 
 });
 
