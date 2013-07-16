@@ -39,13 +39,18 @@ function setButtonListeners()
 }
 
 function setMouseListeners() {
+  $(".main_video").mouseover(function(){
+    if (!$(".video_overlay").is(":visible") || $(".video_overlay").opacity < "1"){
+      $(".video_overlay").fadeIn(500);
+    }
+  });
   $(".main_video").mousemove(function(){
-    if (!$(".video_overlay").is(":visible")){
+    if (!$(".video_overlay").is(":visible") || $(".video_overlay").opacity < "1"){
       $(".video_overlay").fadeIn(500);
     }
   });
   $(".main_video").mouseout(function(){
-    if (!$(".video_overlay").is(":hover")){
+    if (!$(".video_overlay").is(":hover") && !$(".main_video").is(":hover")){
       $(".video_overlay").fadeOut(500);
     }
 
