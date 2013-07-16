@@ -93,6 +93,7 @@ function pauseCurrent(){
 $(document).ready(function() {
   $("video").bind("loadeddata", function(){
     playCurrent();
+    setTimeout(function() { $(".video_overlay").fadeOut(500); }, 2000);
   });
 
   $(".play_pause .pause").click(function(event){
@@ -102,7 +103,6 @@ $(document).ready(function() {
   $(".play_pause .play").click(function(event){
     playCurrent();
   });
-  setTimeout(function() { $(".video_overlay").fadeOut(500); }, 1000);
 
   setButtonListeners();
   setMouseListeners();
