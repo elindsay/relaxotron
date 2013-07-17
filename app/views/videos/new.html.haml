@@ -1,0 +1,27 @@
+.upload_form
+  %h2
+    Video Upload
+  = form_for @video, html: { multipart: true } do|f|
+    - if @video.errors.any?
+      %ul
+        - @video.errors.full_messages.each do |m|
+          %li
+            = m
+    
+    %p
+      = f.label :name, "Name:"
+      %br
+      = f.text_field :name
+    %p
+      = f.label "description", "Description:"
+      %br
+      = f.text_area :description
+    %p
+      = f.label :mp4, "Upload MP4 File"
+      %br
+      = f.file_field :mp4
+    %p
+      = f.label :mp4, "Upload OOG File"
+      %br
+      = f.file_field :oog
+    = f.submit "Create"

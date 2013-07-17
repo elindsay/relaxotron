@@ -11,6 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130716235024) do
+
+  create_table "sound_clips", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "wav_file_name"
+    t.string   "wav_content_type"
+    t.integer  "wav_file_size"
+    t.datetime "wav_updated_at"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "mp4_file_name"
+    t.string   "mp4_content_type"
+    t.integer  "mp4_file_size"
+    t.datetime "mp4_updated_at"
+    t.string   "oog_file_name"
+    t.string   "oog_content_type"
+    t.integer  "oog_file_size"
+    t.datetime "oog_updated_at"
+  end
 
 end
