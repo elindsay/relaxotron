@@ -1,3 +1,6 @@
 Uploaded Videos:
 - @videos.each do |video|
   = video.name
+  %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
+    %source{src: video.mp4.url, type: "video/mp4", class: "mp4"}
+    %source{src: video.oog.url, type: "video/ogg", class: "ogg"}
