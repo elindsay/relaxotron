@@ -8,7 +8,6 @@ Relaxotron::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-  AWS::S3::DEFAULT_HOST = "#{ENV['S3_BUCKET_NAME'}.amazonaws.com"
 
 
   # Settings specified here will take precedence over those in config/application.rb
