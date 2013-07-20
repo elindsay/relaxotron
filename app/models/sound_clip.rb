@@ -1,5 +1,5 @@
 class SoundClip < ActiveRecord::Base
-  attr_accessible :name, :description, :wav
+  attr_accessible :name, :description, :wav, :wav_file_name
   has_attached_file :wav
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :name, :description, :mp4, :ogg
+  attr_accessible :name, :description, :mp4, :ogg, :mp4_file_name, :ogg_file_name
   has_attached_file :mp4
   has_attached_file :ogg
   validates :name, presence: true, uniqueness: true
