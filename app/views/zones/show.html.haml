@@ -20,3 +20,19 @@
   = link_to "Previous Sound Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.previous_sound_clip.slug)
   = link_to "Next Sond Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.next_sound_clip.slug)
 
+Like this video? Save or share this url: 
+= link_to video_audio_url(video_slug: @video.slug, audio_slug: @sound_clip.slug)
+%p
+  %ul
+    %li.facebook
+      = image_tag "facebook.png", class: "social_media"
+    %li.twitter
+      = image_tag "twitter.png", class: "social_media"
+      %a{href: "https://twitter.com/share", class: "twitter-share-button", :"data-text" => "Relax with this video!", :"data-count" => "none"}
+        TWEET
+    %li.pinterest
+      = image_tag "pinterest.png", class: "social_media"
+
+
+= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
+= javascript_include_tag "http://platform.twitter.com/widgets.js"
