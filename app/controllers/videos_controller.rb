@@ -1,11 +1,13 @@
 class VideosController < ApplicationController
   before_filter :authenticate
+
   def new
     @video = Video.new
   end
 
   def create
-    if @video = Video.create(params[:video])
+    @video = Video.new(params[:video])
+    if @video.save
       redirect_to videos_path
     else
       render :new
@@ -15,12 +17,9 @@ class VideosController < ApplicationController
   def index
     @videos = Video.all
   end
-  
-  protected
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        username == "thebusman" && password == "AsDf1234!"
-      end
+
+  def show
+    @video = Video.find_by_slug(params[:id])
   end
   
 end

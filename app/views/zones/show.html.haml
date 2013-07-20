@@ -1,0 +1,22 @@
+%video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
+  %source{src: @video.mp4.url, type: "video/mp4", class: "mp4"}
+  %source{src: @video.ogg.url, type: "video/ogg", class: "ogg"}
+%p
+  Video: 
+  = @video.name
+%p
+  = @video.description
+%p
+  = link_to "Previous Video", video_audio_path(video_slug: @video.previous_video.slug, audio_slug: @sound_clip.slug)
+  = link_to "Next Video", video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug)
+%audio{controls: true, loop: true}
+  %source{src: @sound_clip.wav.url}
+%p
+  Audio:
+  = @sound_clip.name
+%p
+  = @sound_clip.description
+%p
+  = link_to "Previous Sound Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.previous_sound_clip.slug)
+  = link_to "Next Sond Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.next_sound_clip.slug)
+

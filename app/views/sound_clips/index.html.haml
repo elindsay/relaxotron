@@ -1,0 +1,5 @@
+Uploaded Sound Clips:
+- @sound_clips.each do |sound_clip|
+  = sound_clip.name
+  %audio{controls: true}
+    %source{src: sound_clip.wav.url}
