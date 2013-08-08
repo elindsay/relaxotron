@@ -1,38 +1,49 @@
-%video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
-  %source{src: @video.mp4.url, type: "video/mp4", class: "mp4"}
-  %source{src: @video.ogg.url, type: "video/ogg", class: "ogg"}
-%p
-  Video: 
-  = @video.name
-%p
-  = @video.description
-%p
-  = link_to "Previous Video", video_audio_path(video_slug: @video.previous_video.slug, audio_slug: @sound_clip.slug)
-  = link_to "Next Video", video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug)
-%audio{controls: true, loop: true}
-  %source{src: @sound_clip.wav.url}
-%p
-  Audio:
-  = @sound_clip.name
-%p
-  = @sound_clip.description
-%p
-  = link_to "Previous Sound Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.previous_sound_clip.slug)
-  = link_to "Next Sond Clip", video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.next_sound_clip.slug)
+.editor
+  %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
+    %source{src: @video.mp4.url, type: "video/mp4", class: "mp4"}
+    %source{src: @video.ogg.url, type: "video/ogg", class: "ogg"}
+  .scroll
+    .clickers
+      = link_to video_audio_path(video_slug: @video.previous_video.slug, audio_slug: @sound_clip.slug) do
+        .prev
+          &nbsp;
+      = link_to video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug) do
+        .next
+          &nbsp;
+  .name
+    = @video.name
+  .description
+    = @video.description
+  %audio{controls: true, loop: true}
+    %source{src: @sound_clip.wav.url}
+  .scroll
+    .clickers
+      = link_to video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.previous_sound_clip.slug) do
+        .prev
+          &nbsp;
+      = link_to video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.next_sound_clip.slug) do
+        .next
+          &nbsp;
+  .name
+    = @sound_clip.name
+  .description
+    = @sound_clip.description
 
-Like this video? Save or share this url: 
-= link_to video_audio_url(video_slug: @video.slug, audio_slug: @sound_clip.slug)
-%p
-  %ul
-    %li.facebook
-      = image_tag "facebook.png", class: "social_media"
-    %li.twitter
-      = image_tag "twitter.png", class: "social_media"
-      %a{href: "https://twitter.com/share", class: "twitter-share-button", :"data-text" => "Relax with this video!", :"data-count" => "none"}
-        TWEET
-    %li.pinterest
-      = image_tag "pinterest.png", class: "social_media"
+  .share
+    Like this video? Save or share this url: 
+    = link_to video_audio_url(video_slug: @video.slug, audio_slug: @sound_clip.slug)
+
+  -#%p
+  -#  %ul
+  -#    %li.facebook
+  -#      = image_tag "facebook.png", class: "social_media"
+  -#    %li.twitter
+  -#      = image_tag "twitter.png", class: "social_media"
+  -#      %a{href: "https://twitter.com/share", class: "twitter-share-button", :"data-text" => "Relax with this video!", :"data-count" => "none"}
+  -#        TWEET
+  -#    %li.pinterest
+  -#      = image_tag "pinterest.png", class: "social_media"
 
 
-= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
-= javascript_include_tag "http://platform.twitter.com/widgets.js"
+  = javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
+  = javascript_include_tag "http://platform.twitter.com/widgets.js"
