@@ -1,5 +1,4 @@
-class SoundClipsController < ApplicationController
-  before_filter :authenticate
+class Admin::SoundClipsController < AdminController
 
   def new 
     @sound_clip = SoundClip.new

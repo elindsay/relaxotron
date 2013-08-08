@@ -1,5 +1,4 @@
-class VideosController < ApplicationController
-  before_filter :authenticate
+class Admin::VideosController < AdminController
 
   def new
     @video = Video.new
