@@ -10,9 +10,9 @@
       = link_to video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug) do
         .next
           &nbsp;
-  .name
-    = @video.name
   .description
+    .name
+      = @video.name
     = @video.description
   %audio{controls: true, loop: true}
     %source{src: @sound_clip.wav.url}
@@ -24,9 +24,9 @@
       = link_to video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.next_sound_clip.slug) do
         .next
           &nbsp;
-  .name
-    = @sound_clip.name
   .description
+    .name
+      = @sound_clip.name
     = @sound_clip.description
 
   .share
