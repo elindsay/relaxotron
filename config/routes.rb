@@ -5,7 +5,8 @@ Relaxotron::Application.routes.draw do
   resources :zones
 
   namespace :admin do
-    root to: "admin#index"
+    root to: "home#index"
+    resources :home, only: [:index]
     resources :zones
     resources :videos
     resources :sound_clips
