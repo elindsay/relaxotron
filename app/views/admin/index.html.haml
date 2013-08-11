@@ -1,0 +1,18 @@
+.options{style: "margin-top: 50px;"}
+  Admin Section!!!
+  .zones{style: "margin-top: 30px;"}
+    = link_to "Zones", admin_zones_path
+    .description
+      This is where you control the content on the front page
+      %br
+      Rank is the order it shows up, 1 is the main video (if you designate two videos as 1, it will pick randomly) then the rest follows the order below
+      %br
+      Zones with no rank will not show
+  .videos{style: "margin-top: 30px;"}
+    = link_to "Videos", admin_videos_path
+    .description
+      This is where you upload and edit videos. "Poster" is the image that is shown when the video is not playing.
+  .sound_clips{style: "margin-top: 30px;"}
+    = link_to "Sound Clips", admin_sound_clips_path
+    .description
+      This is where you upload new sound files

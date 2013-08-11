@@ -17,6 +17,12 @@
 function setButtonListeners()
 {
   $("li img").click(function(event){
+    var vslug = $(this).data("vslug"); 
+    var aslug = $(this).data("aslug"); 
+    console.log("aslug: " + aslug);
+    var new_link = "/video/"+vslug+"/audio/"+aslug;
+    console.log(new_link);
+    $(".video_overlay .modify a").attr("href", new_link);
     var audio_src = $(this).data("wav");
     if(audio_src != null){
       $("audio source")[0].src = audio_src;

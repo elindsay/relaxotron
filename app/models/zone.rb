@@ -4,4 +4,12 @@ class Zone < ActiveRecord::Base
   belongs_to :sound_clip
   delegate :mp4, :ogg, :poster, to: :video
   delegate :wav, to: :sound_clip
+
+  def video_slug
+    video.slug
+  end
+  
+  def sound_clip_slug
+    sound_clip.slug
+  end
 end
