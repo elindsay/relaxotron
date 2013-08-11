@@ -1,0 +1,15 @@
+.create_new{style: "width: 940px; margin-top: 30px;"}
+  = link_to "Create new zone", new_admin_zone_path
+.zone_list
+  - @zones.each do |zone|
+    .number{style: "float: left; font-weight: bold; width: 20px;"}
+      = zone.rank || raw("&nbsp;")
+    .info
+      Video:
+      = zone.video.name
+      \- Audio:
+      = zone.sound_clip.name
+      (
+      = link_to "edit", edit_admin_zone_path(zone)
+      )
+      

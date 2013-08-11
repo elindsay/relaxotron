@@ -1,5 +1,11 @@
-Uploaded Sound Clips:
-- @sound_clips.each do |sound_clip|
-  = sound_clip.name
-  %audio{controls: true}
-    %source{src: sound_clip.wav.url}
+.all_clips{style: "margin-top: 50px;"}
+  
+  .new_clip
+    = link_to "Add new sound clip", new_admin_sound_clip_path
+  %h2 Uploaded Sound Clips:
+
+  - @sound_clips.each do |sound_clip|
+    = sound_clip.name
+    .clip
+      %audio{controls: true}
+        %source{src: sound_clip.wav.url}

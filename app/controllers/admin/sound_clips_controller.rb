@@ -7,7 +7,7 @@ class Admin::SoundClipsController < AdminController
   def create
     @sound_clip = SoundClip.new(params[:sound_clip])
     if @sound_clip.save
-      redirect_to sound_clips_path
+      redirect_to admin_sound_clips_path
     else
       render :new
     end

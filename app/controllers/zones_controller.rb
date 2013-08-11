@@ -2,6 +2,8 @@ class ZonesController < ApplicationController
   before_filter :authenticate, only: [:edit]
 
   def index
+    @zones = Zone.find(:all, order: "rank asc", conditions: "rank IS NOT NULL")
+    @initial_zone = @zones.first
   end
 
   def show

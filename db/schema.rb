@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720050159) do
+ActiveRecord::Schema.define(:version => 20130810230905) do
 
   create_table "sound_clips", :force => true do |t|
     t.string   "name"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20130720050159) do
   create_table "videos", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "mp4_file_name"
     t.string   "mp4_content_type"
     t.integer  "mp4_file_size"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(:version => 20130720050159) do
     t.integer  "ogg_file_size"
     t.datetime "ogg_updated_at"
     t.string   "slug"
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
+  end
+
+  create_table "zones", :force => true do |t|
+    t.integer  "video_id"
+    t.integer  "sound_clip_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "rank"
   end
 
 end

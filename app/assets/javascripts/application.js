@@ -17,14 +17,15 @@
 function setButtonListeners()
 {
   $("li img").click(function(event){
-    var audio_src = $(this).data("audio");
+    var audio_src = $(this).data("wav");
     if(audio_src != null){
       $("audio source")[0].src = audio_src;
       $("audio").load();
     }
-    var vid_src = $(this).data("video"); 
-    $(".main_video video source.mp4")[0].src = vid_src + ".m4v";
-    $(".main_video video source.ogg")[0].src = vid_src + ".ogv";
+    var vid_mp4_src = $(this).data("mp4"); 
+    var vid_ogg_src = $(this).data("ogg"); 
+    $(".main_video video source.mp4")[0].src = vid_mp4_src;
+    $(".main_video video source.ogg")[0].src = vid_ogg_src;
     $(".main_video video")[0].poster = $(this)[0].src;
     $(".main_video video").load();
     playCurrent();

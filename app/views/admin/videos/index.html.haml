@@ -1,6 +1,12 @@
-Uploaded Videos:
-- @videos.each do |video|
-  = video.name
-  %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
-    %source{src: video.mp4.url, type: "video/mp4", class: "mp4"}
-    %source{src: video.ogg.url, type: "video/ogg", class: "ogg"}
+.all_videos{style: "margin-top: 50px;"}
+  
+  .new_video
+    = link_to "Add new video", new_admin_video_path
+  %h2 Uploaded Videos:
+
+  - @videos.each do |video|
+    = video.name
+    = link_to "edit", edit_admin_video_path(video)
+    %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto"}
+      %source{src: video.mp4.url, type: "video/mp4", class: "mp4"}
+      %source{src: video.ogg.url, type: "video/ogg", class: "ogg"}

@@ -1,7 +1,7 @@
 .upload_form
   %h2
     Audio Upload
-  = form_for @sound_clip, html: { multipart: true } do|f|
+  = form_for [:admin, @sound_clip], html: { multipart: true } do|f|
     - if @sound_clip.errors.any?
       %ul
         - @sound_clip.errors.full_messages.each do |m|

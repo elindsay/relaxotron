@@ -1,0 +1,5 @@
+%h2
+  Update Zone
+= render partial: 'form'
+
+= button_to "Delete", [:admin, @zone], method: :delete, onclick: "return confirm('Delete this zone?')"

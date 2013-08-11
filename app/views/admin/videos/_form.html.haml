@@ -1,0 +1,38 @@
+.upload_form
+  = form_for [:admin, @video], html: { multipart: true } do|f|
+    - if @video.errors.any?
+      %ul
+        - @video.errors.full_messages.each do |m|
+          %li
+            = m
+    
+    %p
+      = f.label :name, "Name:"
+      %br
+      = f.text_field :name
+    %p
+      = f.label "description", "Description:"
+      %br
+      = f.text_area :description
+    %p
+      - unless @video.mp4.blank?
+        .old_path{style: "font-size: 12px;"}
+          = @video.mp4.path + " is uploaded"
+      = f.label :mp4, "Upload MP4 File"
+      %br
+      = f.file_field :mp4
+    %p
+      - unless @video.ogg.blank?
+        .old_path{style: "font-size: 12px;"}
+          = @video.ogg.path + " is uploaded"
+      = f.label :ogg, "Upload OGG File"
+      %br
+      = f.file_field :ogg
+    %p
+      - unless @video.poster.blank?
+        .old_path{style: "font-size: 12px;"}
+          = @video.poster.path + " is uploaded"
+      = f.label :poster, "Upload Poster Image"
+      %br
+      = f.file_field :poster
+    = f.submit

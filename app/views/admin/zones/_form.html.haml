@@ -1,0 +1,25 @@
+.zone_form
+  = form_for [:admin, @zone],  do|f|
+    - if @zone.errors.any?
+      %ul
+        - @zone.errors.full_messages.each do |m|
+          %li
+            = m
+    
+    %p
+    %p
+      = f.label :video_id, "Video"
+      %br
+      = f.select :video_id, @videos.map{|v| [v.name, v.id]}
+    
+    %p
+      = f.label :sound_clip_id, "Sound Clip"
+      %br
+      = f.select :sound_clip_id, @sound_clips.map{|sc| [sc.name, sc.id]}
+
+    %p
+      = f.label :rank
+      %br
+      = f.text_field :rank
+
+    = f.submit
