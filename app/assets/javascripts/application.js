@@ -89,6 +89,16 @@ function pauseCurrent(){
   $(".play_pause .play").removeClass("hidden");
   fadeInDistractions();
 }
+
+function fullScreenVideo(){
+  if($(window).width() > $(".show_two video").width()){
+    $(".show_two video").width("100%");
+    $(".show_two video").height("auto");
+  } else if($(window).height() > $(".show_two video").height()){
+    $(".show_two video").width("auto");
+    $(".show_two video").height("100%");
+  }
+}
 $(document).ready(function() {
   $.data(document.body, "lastVideoMouse", null);
   $("video").bind("loadeddata", function(){
@@ -106,6 +116,14 @@ $(document).ready(function() {
 
   setButtonListeners();
   setMouseListeners();
+
+  //show two stuff
+  if($(".show_two").length > 0){
+    fullScreenVideo();
+    $(window).bind("resize", function(e) {
+      fullScreenVideo();
+    });
+  }
 
 });
 
