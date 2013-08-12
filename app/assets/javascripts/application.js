@@ -125,6 +125,15 @@ $(document).ready(function() {
     });
   }
 
+  //index_two stuff
+  if ($(".index_two").length > 0){
+    $("li img").click(function(event){
+      $(".index_two .video_selector").fadeOut(500, function(){
+        $(".index_two .audio_selector").fadeIn(500);
+      });
+    });
+  }
+
 });
 
 
