@@ -14,14 +14,14 @@ body
     float: left
     .name
       margin-left: -6px
-      font-size: 80px
+      font-size: 55px
       a
         text-decoration: none
     .subtext
       float: left
-      margin-top: -32px
+      margin-top: -20px
       margin-left: 1px
-      font-size: 23px
+      font-size: 16px
       color: black
 
 .forrest
@@ -33,17 +33,18 @@ body
     background-color: rgba(255, 255, 255, 0.8)
 
 .menu
-  float: right
-  padding: 10px
-  position: relative
-  top: 74px
+  clear: left
+  margin-top: 95px
   a
     text-decoration: none
-    color: black
+    color: green
     font-size: 24px
     padding: 0px 5px
-    &:hover
-      text-decoration: underline
+    border: 1px solid green
+    margin-right: 3px
+    &:hover, .selected
+      color: white
+      background-color: green
 
 .hidden
   display: none

@@ -1,0 +1,30 @@
+.home_page
+  .main_video
+    %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: "/assets/posters/potomac.jpg"}
+      %source{src: @zone.mp4, type: "video/mp4", class: "mp4"}
+      %source{src: @zone.ogg, type: "video/ogg", class: "ogg"}
+  .description.tk-vinter-web
+    .featured_video
+      Featured Video:
+      = link_to @zone.video.name, video_audio_two_path(@zone.video.slug, @zone.sound_clip.slug)
+    .relaxotron_link
+      = link_to "See all", "/main_2"
+  .other_options.tk-vinter-web
+    .option_one
+      = image_tag "demo/source.jpg"
+      .large
+        Returning to the Source
+      .small
+        Learning to go with the flow, and stop fighting the current.
+    .option_two
+      = image_tag "demo/fish.jpg"
+      .large
+        Compassion for All Creatures
+      .small
+        How the act of giving can improve your happiness more than the act of taking.
+    .option_three
+      = image_tag "demo/snow.jpg"
+      .large
+        Surviving the Winter
+      .small
+        Learning to handle life's struggles with equanimity and grace.

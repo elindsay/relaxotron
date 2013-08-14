@@ -1,6 +1,6 @@
 class ZonesController < ApplicationController
   before_filter :authenticate, only: [:edit]
-  layout 'barebones', only: [:show_two]
+  layout 'barebones', only: [:show_two, :index_three]
 
   def index
     @zones = Zone.find(:all, order: "rank asc", conditions: "rank IS NOT NULL")
@@ -8,6 +8,11 @@ class ZonesController < ApplicationController
   end
 
   def index_two
+    @zones = Zone.find(:all, order: "rank asc", conditions: "rank IS NOT NULL")
+    @initial_zone = @zones.first
+  end
+
+  def index_three
     @zones = Zone.find(:all, order: "rank asc", conditions: "rank IS NOT NULL")
     @initial_zone = @zones.first
   end

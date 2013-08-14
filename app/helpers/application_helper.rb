@@ -6,4 +6,5 @@ module ApplicationHelper
      compact.join(", ")].
     reject{|e| e.empty?}.join(" - ")
   end
+
 end
