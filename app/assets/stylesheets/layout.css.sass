@@ -32,7 +32,9 @@ body
     background-color: rgba(255, 255, 255, 0.8)
 
 .menu
-  margin-top: 40px
+  position: relative
+  top: 33px
+  right: 0px
   float: right
   a
     text-decoration: none
@@ -42,6 +44,29 @@ body
     margin-right: 3px
     &:hover, .selected
       text-decoration: underline
+  .dropdown
+    float: left
+    border: 1px solid transparent
+    .options
+      display: none
+    &:hover
+      .options
+        border: 1px solid black
+        position: absolute
+        top: 30px
+        left: 0
+        display: block
+        background-color: white
+        .blocker
+          background-color: white
+          height: 2px
+          margin-top: -2px
+        a
+          clear: left
+  .dropdown.full
+    &:hover
+      border: 1px solid black
+      border-bottom: 1px solid white
 
 .hidden
   display: none

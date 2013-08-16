@@ -20,10 +20,36 @@
               Placidity
 
         .menu
-          = link_to "Relaxotron", "/main_2", class: "tk-vinter-web"
-          = link_to "Articles", "#", class: "tk-vinter-web"
-          = link_to "Forum", "#", class: "tk-vinter-web"
-          = link_to "Marketplace", "#", class: "tk-vinter-web"
+          .dropdown.full
+            = link_to "Relaxotron", "/main_2", class: "tk-vinter-web"
+            .options
+              .blocker
+              .option
+                = link_to "Health", "#", class: "tk-vinter-web"
+              .option
+                = link_to "Wellness", "#", class: "tk-vinter-web"
+              .option
+                = link_to "Something", "#", class: "tk-vinter-web"
+          .dropdown.full
+            = link_to "Articles", "#", class: "tk-vinter-web"
+            .options
+              .blocker
+              .option
+                = link_to "Health", "#", class: "tk-vinter-web"
+              .option
+                = link_to "Wellness", "#", class: "tk-vinter-web"
+              .option
+                = link_to "Something", "#", class: "tk-vinter-web"
+          .dropdown
+            = link_to "Forum", "#", class: "tk-vinter-web"
+          .dropdown
+            = link_to "Marketplace", "#", class: "tk-vinter-web"
+          .dropdown
+            = link_to "Students", "#", class: "tk-vinter-web"
+          .dropdown
+            = link_to "Family", "#", class: "tk-vinter-web"
+          .dropdown
+            = link_to "Work", "#", class: "tk-vinter-web"
 
       #flash
         - flash.each do |key, value|

@@ -134,6 +134,13 @@ $(document).ready(function() {
     });
   }
 
+  //header stuff
+  $("#header .dropdown").mouseover(function(){
+    $(this).find(".options").css("left", $(this).position().left);
+    $(this).find(".options").css("min-width", $(this).width());
+    $(this).find(".blocker").css("width", $(this).width());
+  });
+
 });
 
 
