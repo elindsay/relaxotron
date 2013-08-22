@@ -1,0 +1,9 @@
+.articles_index
+  - @articles.each do |article|
+    .article_row
+      - if article.article_picture.present?
+        = image_tag article.article_picture.image, class: "article_image"
+      .link
+        = link_to article.title, article_path(article)
+      .description
+        = article.description

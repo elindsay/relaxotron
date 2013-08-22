@@ -7,10 +7,13 @@ Relaxotron::Application.routes.draw do
 
   resource :home, only: [:index]
   resources :zones
+  resources :articles
 
   namespace :admin do
     root to: "home#index"
     resources :home, only: [:index]
+    resources :articles
+    resources :article_pictures
     resources :zones
     resources :videos
     resources :sound_clips

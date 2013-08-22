@@ -1,0 +1,21 @@
+.article_show
+  %h2.title
+    = @article.title
+  - if @article.author.present?
+    .author
+      by
+      = @article.author
+  - if @article.internal_article?
+    - if @article.article_picture.present?
+      .picture.right.large
+        = image_tag @article.article_picture.image
+    .full_body
+      = @article.full_body
+  - else
+    - if @article.article_picture.present?
+      .picture.left.small
+        = image_tag @article.article_picture.image
+    .description
+      = @article.description
+    .external_link
+      = link_to "Full text", @article.link

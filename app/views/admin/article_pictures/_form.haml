@@ -1,0 +1,18 @@
+.upload_form
+  = form_for [:admin, @article_picture], html: { multipart: true } do|f|
+    - if @article_picture.errors.any?
+      %ul
+        - @article_picture.errors.full_messages.each do |m|
+          %li
+            = m
+    
+    %p
+      = f.label :article_id, "Show on Article:"
+      %br
+      = f.select :article_id, Article.all.map{|a| [a.title, a.id]}
+    %p
+      = f.label :image, "Upload Image"
+      %br
+      = f.file_field :image
+
+    = f.submit
