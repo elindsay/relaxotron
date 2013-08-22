@@ -10,12 +10,13 @@
     .relaxotron_link
       = link_to "See all", "/main_2"
   .other_options.tk-vinter-web
-    .option_one
-      = image_tag @article_one.article_picture.image
-      .large
-        = @article_one.title
-      .small
-        = @article_one.description
+    = link_to article_path(@article_one) do
+      .option_one
+        = image_tag @article_one.article_picture.image
+        .large
+          = @article_one.title
+        .small
+          = @article_one.description
     .option_two
       = image_tag "demo/fish.jpg"
       .large
