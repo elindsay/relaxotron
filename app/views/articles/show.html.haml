@@ -10,7 +10,7 @@
       .picture.right.large
         = image_tag @article.article_picture.image
     .full_body
-      = @article.full_body
+      = raw(@article.full_body)
   - else
     - if @article.article_picture.present?
       .picture.left.small
