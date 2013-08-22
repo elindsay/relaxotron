@@ -11,11 +11,11 @@
       = link_to "See all", "/main_2"
   .other_options.tk-vinter-web
     .option_one
-      = image_tag "demo/source.jpg"
+      = image_tag @article_one.article_picture.image
       .large
-        Returning to the Source
+        = @article_one.title
       .small
-        Learning to go with the flow, and stop fighting the current.
+        = @article_one.description
     .option_two
       = image_tag "demo/fish.jpg"
       .large
