@@ -25,5 +25,19 @@
     .audio_name.name
       Audio: 
       = @sound_clip.name
-    .the_p
-      = image_tag "placidity_icon.png"
+    .placidity_logo
+      .logo
+        .name
+          = link_to root_path, class: "tk-brandon-grotesque" do
+            Placidity
+      .menu
+        .option
+          = link_to "Market", "#"
+        .option
+          = link_to "Forum", "#"
+        .option
+          = link_to "Articles", articles_path
+        .option
+          = link_to "Relaxotron", "/main_2"
+        .option
+          = link_to "Home", root_path
