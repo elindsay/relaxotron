@@ -12,31 +12,31 @@
       
 
   %body.forrest
+    #header
+      .logo
+        .name
+          = link_to root_path do
+            Placidity
+
+      .menu
+        .dropdown
+          = link_to "Relaxotron", "/main_2"
+        .dropdown
+          = link_to "Articles", articles_path
+        .dropdown
+          = link_to "Forum", "#"
+        .dropdown.full
+          = link_to "Marketplace", "#"
+          .options
+            .blocker
+            .option
+              = link_to "Relaxing Teas", "#"
+            .option
+              = link_to "Sleep Aids", "#"
+            .option
+              = link_to "Aromatherapy", "#"
+
     .content
-      #header
-        .logo
-          .name
-            = link_to root_path do
-              Placidity
-
-        .menu
-          .dropdown
-            = link_to "Relaxotron", "/main_2", class: "tk-vinter-web"
-          .dropdown
-            = link_to "Articles", articles_path, class: "tk-vinter-web"
-          .dropdown
-            = link_to "Forum", "#", class: "tk-vinter-web"
-          .dropdown.full
-            = link_to "Marketplace", "#", class: "tk-vinter-web"
-            .options
-              .blocker
-              .option
-                = link_to "Relaxing Teas", "#", class: "tk-vinter-web"
-              .option
-                = link_to "Sleep Aids", "#", class: "tk-vinter-web"
-              .option
-                = link_to "Aromatherapy", "#", class: "tk-vinter-web"
-
       #flash
         - flash.each do |key, value|
           %div{:id => "flash#{key}"}
@@ -44,12 +44,12 @@
       .main
         = yield
 
-      #footer.fadeable.tk-vinter-web
-        .facebook
-          Questions? Probems? Feedback? Ask us on 
-          = link_to "Facebook", "http://facebook.com/placiditydotcom", class: "tk-brandon-grotesque"
-        .copyright
-          Copyright Three Tuns Productions LLC,  2013 - All Rights Reserved
+    #footer
+      .facebook
+        Questions? Probems? Feedback? Ask us on 
+        = link_to "Facebook", "http://facebook.com/placiditydotcom"
+      .copyright
+        Copyright Three Tuns Productions LLC,  2013 - All Rights Reserved
 
 :javascript
   //Google Analytics
