@@ -113,13 +113,6 @@ ul.selector
       float: left
       width: 70px
       margin-left: 435px
-      .prev, .next
-        float: left
-      .prev
-        +triangleLeft(30px, black)
-        margin-right: 10px
-      .next
-        +triangleRight(30px, black)
   .name, .description
     float: left
   .description
@@ -177,14 +170,6 @@ ul.selector
     .clickers
       float: right
       width: 70px
-      .prev, .next
-        float: left
-        margin-top: 10px
-      .prev
-        +triangleLeft(30px, white)
-        margin-right: 10px
-      .next
-        +triangleRight(30px, white)
     .placidity_logo
       float: left
       margin-left: 10px
@@ -218,15 +203,93 @@ ul.selector
           display: block
 
 .index_two
+  .video_controls
+    width: 940px
+    margin: 10px
+    float: left
+    background-color: $placidity-green
+    color: white
+    font-family: Helvetica, sans-serif
+    font-weight: 100
+    letter-spacing: 1px
+    font-size: 16px
+    .video_loop, .play, .pause, .loop_select, .modify
+      float: left
+      margin: 10px
+    .video_loop
+      .full 
+        float: left
+        margin-top: 15px
+      .play_pause
+        float: left
+        cursor: pointer
+        font-family: Helvetica, sans-serif
+        font-size: 20px 
+        display: inline-block
+        color: white
+        width: 50px
+        height: 45px
+        margin: 0px
+        .play
+          float: left
+          margin-left: 20px
+          +triangleRight(24px, white)
+          +scale(1.8, 1)
+        .pause
+          float: left
+          .bar_one, .bar_three
+            background-color: white
+            width: 7px
+          .bar_two
+            width: 5px
+          .bar_one, .bar_three, .bar_two
+            float: left
+      .loop_select
+        margin-top: 14px
+    .audio_vid_chooser
+      float: right
+      .video_chooser, .audio_chooser
+        float: left
+        padding-bottom: 4px
+        margin-top: 15px
+        margin-right: 20px
+        .type, .title
+          float: left
+          margin-top: 4px
+        .title
+          margin-right: 10px
+        .clickers
+          float: left
+        &.selected
+          border-bottom: 1px solid white
+    
+
+  .selector_holder
+    overflow: hidden
+    width: 940px
+    margin: 10px
+  .all_selectors
+    position: relative
+    left: 0px
+    float: left
+    width: 1900px
+
+  .selector
+    width: 940px
+    padding: 0px
+  .video_selector
+    float: left
+    margin-right: 20px
   .audio_selector
+    float: left
     li
       border: 1px solid black
       margin-right: 16px
       width: 220px
-      height: 140px
+      height: 80px
       cursor: pointer
       text-align: center
-      padding-top: 80px
+      padding-top: 45px
       font-family: Helvetica, sans-serif
       color: black
       a
@@ -238,6 +301,8 @@ ul.selector
         color: green
         a
           color: green
+      &.last
+        margin-right: 0px
 
 .index_three
   .video_selector
@@ -267,3 +332,11 @@ ul.selector
         img
           width: 660px
           height: 371px
+.clickers
+  .prev, .next
+    float: left
+  .prev
+    +triangleLeft(24px, white)
+    margin-right: 10px
+  .next
+    +triangleRight(25px, white)

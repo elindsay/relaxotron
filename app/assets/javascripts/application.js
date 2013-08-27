@@ -19,9 +19,7 @@ function setButtonListeners()
   $("li img").click(function(event){
     var vslug = $(this).data("vslug"); 
     var aslug = $(this).data("aslug"); 
-    console.log("aslug: " + aslug);
     var new_link = "/video/"+vslug+"/audio/"+aslug;
-    console.log(new_link);
     $(".video_overlay .modify a").attr("href", new_link);
     var audio_src = $(this).data("wav");
     if(audio_src != null){
@@ -127,10 +125,20 @@ $(document).ready(function() {
 
   //index_two stuff
   if ($(".index_two").length > 0){
-    $("li img").click(function(event){
-      $(".index_two .video_selector").fadeOut(500, function(){
-        $(".index_two .audio_selector").fadeIn(500);
-      });
+    $(".audio_chooser").click(function(event){
+      if(!$(this).hasClass("selected")){
+        $(".all_selectors").animate({left: "-960px"}, 1000);
+        $(".video_chooser").removeClass("selected");
+        $(".audio_chooser").addClass("selected");
+      }
+    });
+
+    $(".video_chooser").click(function(event){
+      if(!$(this).hasClass("selected")){
+        $(".all_selectors").animate({left: "0px"}, 1000);
+        $(".video_chooser").addClass("selected");
+        $(".audio_chooser").removeClass("selected");
+      }
     });
   }
 

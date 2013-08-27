@@ -6,37 +6,56 @@
     %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto", poster: "/assets/posters/potomac.jpg"}
       %source{src: @initial_zone.mp4, type: "video/mp4", class: "mp4"}
       %source{src: @initial_zone.ogg, type: "video/ogg", class: "ogg"}
-    .video_overlay
-      .video_loop
-        .play_pause
-          .play.hidden
+
+  .video_controls
+    .video_loop
+      .play_pause
+        .play.hidden
+          &nbsp;
+        .pause
+          .bar_one
             &nbsp;
-          .pause
-            .bar_one
-              &nbsp;
-            .bar_two
-              &nbsp;
-            .bar_three
-              &nbsp;
+          .bar_two
+            &nbsp;
+          .bar_three
+            &nbsp;
+      .full
+        Full
 
-        .two_min.loop_select.selected{data: {length: 2}}
-          2 Min
-        .five_min.loop_select{data: {length: 5}}
-          5 Min
-        .ten_min.loop_select{data: {length: 10}}
-          10 Min
-        .infinite.loop_select
-          Forever
-        .modify
-          = link_to "Mix", video_audio_path(@initial_zone.video.slug, @initial_zone.sound_clip.slug)
-
-  .video_selector.fadeable
-    %ul.selector
-      - (@zones).each_with_index do |zone, index|
-        %li{class: "item-#{index}" + ((index+1)%4 == 0 ? " last" : "")}
-          = image_tag zone.poster, data: {mp4: zone.mp4.to_s, ogg: zone.ogg.to_s, wav: zone.wav.to_s, vslug: zone.video_slug, aslug: zone.sound_clip_slug}
-  .audio_selector.hidden
-    %ul.selector
-      - (SoundClip.all).each_with_index do |clip, index|
-        %li{class: "item-#{index}" + ((index+1)%4 == 0 ? " last" : "")}
-          = link_to clip.name, video_audio_two_url(video_slug: @initial_zone.video.slug, audio_slug: clip.slug)
+    .audio_vid_chooser
+      .video_chooser.selected
+        .clickers
+          = link_to "" do
+            .prev
+              &nbsp;
+          = link_to "" do
+            .next
+              &nbsp;
+        .type
+          Video:
+        .title
+          = @initial_zone.video.name
+      .audio_chooser
+        .clickers
+          = link_to "" do
+            .prev
+              &nbsp;
+          = link_to "" do
+            .next
+              &nbsp;
+        .type
+          Audio:
+        .title
+          = @initial_zone.sound_clip.name
+  .selector_holder
+    .all_selectors
+      .video_selector.fadeable
+        %ul.selector
+          - (@zones).each_with_index do |zone, index|
+            %li{class: "item-#{index}" + ((index+1)%4 == 0 ? " last" : "")}
+              = image_tag zone.poster, data: {mp4: zone.mp4.to_s, ogg: zone.ogg.to_s, wav: zone.wav.to_s, vslug: zone.video_slug, aslug: zone.sound_clip_slug}
+      .audio_selector
+        %ul.selector
+          - (SoundClip.all).each_with_index do |clip, index|
+            %li{class: "item-#{index}" + ((index+1)%4 == 0 ? " last" : "")}
+              = link_to clip.name, video_audio_two_url(video_slug: @initial_zone.video.slug, audio_slug: clip.slug)
