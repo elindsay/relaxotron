@@ -42,13 +42,7 @@ $placidity-green: #003300
       +scale(1.8, 1)
     .pause
       float: left
-      .bar_one, .bar_three
-        background-color: white
-        width: 7px
-      .bar_two
-        width: 5px
-      .bar_one, .bar_three, .bar_two
-        float: left
+
   .play_pause
     margin: 13px 10px 13px 185px
   .modify
@@ -170,6 +164,11 @@ ul.selector
     .clickers
       float: right
       width: 70px
+      margin-top: 14px
+    .pause
+      float: left
+      margin-top: 18px
+      margin-left: 20px
     .placidity_logo
       float: left
       margin-left: 10px
@@ -256,8 +255,8 @@ ul.selector
         .type, .title
           float: left
           margin-top: 4px
-        .title
-          margin-right: 10px
+        .type
+          margin-right: 6px
         .clickers
           float: left
         &.selected
@@ -340,3 +339,12 @@ ul.selector
     margin-right: 10px
   .next
     +triangleRight(25px, white)
+
+.pause
+  .bar_one, .bar_three
+    background-color: white
+    width: 7px
+  .bar_two
+    width: 5px
+  .bar_one, .bar_three, .bar_two
+    float: left
