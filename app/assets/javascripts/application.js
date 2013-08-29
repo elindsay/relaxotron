@@ -88,6 +88,17 @@ function fullScreenVideo(){
   }
 }
 $(document).ready(function() {
+  //dirty chrome hack
+  $("video").on('play',function(){
+      if (this.getAttribute('controls') !== 'true') {
+          this.setAttribute('controls', 'true');                    
+      }
+      this.removeAttribute('controls');
+  });
+
+  $("video").bind("loadeddata", function(){
+    playCurrent();
+  });
 
   $(".play_pause .pause").click(function(event){
     pauseCurrent();
@@ -98,12 +109,6 @@ $(document).ready(function() {
   });
 
   if ($(".home_page").length > 0){
-    $("video").on('play',function(){
-        if (this.getAttribute('controls') !== 'true') {
-            this.setAttribute('controls', 'true');                    
-        }
-        this.removeAttribute('controls');
-    });
 
     $("video").bind("canplaythrough", function(){
       $("video").get(0).play();
@@ -119,10 +124,6 @@ $(document).ready(function() {
 
   //zones index
   if ($(".zones_index").length > 0){
-    $("video").bind("loadeddata", function(){
-      playCurrent();
-    });
-
     setButtonListeners();
 
     $(".audio_chooser").click(function(event){
