@@ -1,14 +1,14 @@
 .home_page
   .main_video
-    %video.item_0{width: 940, height: 528, controls: false, loop: true, autoplay: true, preload: "auto", poster: @zone.poster}
+    %video{width: 940, height: 528, controls: false, loop: true, autoplay: false, preload: "auto", poster: @zone.poster}
       %source{src: @zone.mp4, type: "video/mp4", class: "mp4"}
       %source{src: @zone.ogg, type: "video/ogg", class: "ogg"}
   .description.tk-vinter-web
     .featured_video
       Featured Video:
-      = link_to @zone.video.name, video_audio_two_path(@zone.video.slug, @zone.sound_clip.slug)
+      = link_to @zone.video.name, video_audio_path(@zone.video.slug, @zone.sound_clip.slug)
     .relaxotron_link
-      = link_to "See all", "/main_2"
+      = link_to "See all", zones_path
   .other_options.tk-vinter-web
     = link_to article_path(@article_one) do
       .option_one
