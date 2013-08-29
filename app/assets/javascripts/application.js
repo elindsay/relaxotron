@@ -16,11 +16,13 @@
 
 function setButtonListeners()
 {
-  $("li img").click(function(event){
+  $(".video_selector li img").click(function(event){
     var vslug = $(this).data("vslug"); 
+    var vtitle = $(this).data("vtitle"); 
     var aslug = $(this).data("aslug"); 
+    var atitle = $(this).data("atitle"); 
     var new_link = "/video/"+vslug+"/audio/"+aslug;
-    $(".video_overlay .modify a").attr("href", new_link);
+    $(".video_controls .full a").attr("href", new_link);
     var audio_src = $(this).data("wav");
     if(audio_src != null){
       $("audio source")[0].src = audio_src;
@@ -33,14 +35,31 @@ function setButtonListeners()
     $(".main_video video")[0].poster = $(this)[0].src;
     $(".main_video video").load();
     playCurrent();
-  });
-  $(".video_loop .loop_select").click(function(event){
-    $(".video_loop .selected").removeClass("selected");
-    $(this).addClass("selected");
-    var length = $(this).data("length");
-    startZone(length);
+    //set selection correctly
+    $(".video_chooser > .title").html(vtitle);
+    $(".audio_chooser > .title").html(atitle);
+    $(".video_selector li").removeClass("selected"); 
+    $(this).parent().addClass("selected"); 
+    $(".audio_selector li").removeClass("selected");
+    $(".audio_selector ." + aslug).addClass("selected");
   });
   
+  $(".audio_selector li").click(function(event){
+    var audio_src = $(this).data("wav");
+    var audio_slug = $(this).data("aslug");
+    if(audio_src != null){
+      $("audio source")[0].src = audio_src;
+      $("audio").load();
+      playCurrent();
+      $(".audio_selector li").removeClass("selected")
+      $(this).addClass("selected")
+      $(".audio_chooser > .title").html($(this).html());
+      var old_paths = $(".video_controls .full a").attr("href").split('/');
+      old_paths[old_paths.length - 1] = audio_slug
+      var new_link = old_paths.join("/");
+      $(".video_controls .full a").attr("href", new_link);
+    }
+  });
 }
 
 function setMouseListeners() {

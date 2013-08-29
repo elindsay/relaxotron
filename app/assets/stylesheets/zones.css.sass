@@ -67,14 +67,19 @@ ul.selector
     float: left
     margin-bottom: 12px
     img
-      margin-right: 16px
-      width: 222px
+      margin-right: 12px
+      width: 220px
       cursor: pointer
+      border: 3px solid transparent
       &:hover
         opacity: 0.6
+        border: 3px solid $placidity-green
     &.last
       img
         margin-right: 0px
+  li.selected
+    img
+      border: 3px solid $placidity-green
 
 .jcarousel-prev
   font-size: 20px
@@ -219,6 +224,9 @@ ul.selector
       .full 
         float: left
         margin-top: 15px
+        a
+          color: white
+          text-decoration: none
       .play_pause
         float: left
         cursor: pointer
@@ -279,11 +287,12 @@ ul.selector
   .video_selector
     float: left
     margin-right: 20px
+    
   .audio_selector
     float: left
     li
-      border: 1px solid black
-      margin-right: 16px
+      border: 3px solid black
+      margin-right: 12px
       width: 220px
       height: 80px
       cursor: pointer
@@ -295,8 +304,8 @@ ul.selector
         color: black
         text-decoration: none
         letter-spacing: 1px
-      &:hover
-        border: 1px solid green
+      &.selected, &:hover
+        border: 3px solid green
         color: green
         a
           color: green
