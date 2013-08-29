@@ -152,6 +152,58 @@ $(document).ready(function() {
       }
     });
 
+    $(".video_chooser .clickers .prev").click(function(event){
+      previous_elt = $(".video_selector li.selected").prev();
+      if(previous_elt.length == 0){
+        $(".video_selector li").removeClass("selected");
+        $(".video_selector li").last().addClass("selected");
+        $(".video_selector li.selected").find("img").trigger("click");
+      }else{
+        $(".video_selector li").removeClass("selected");
+        $(previous_elt).addClass("selected");
+        $(previous_elt).find("img").trigger("click");
+      }
+    });
+
+    $(".video_chooser .clickers .next").click(function(event){
+      next_elt = $(".video_selector li.selected").next();
+      if(next_elt.length == 0){
+        $(".video_selector li").removeClass("selected");
+        $(".video_selector li").last().addClass("selected");
+        $(".video_selector li.selected").find("img").trigger("click");
+      }else{
+        $(".video_selector li").removeClass("selected");
+        $(next_elt).addClass("selected");
+        $(next_elt).find("img").trigger("click");
+      }
+    });
+
+    $(".audio_chooser .clickers .prev").click(function(event){
+      previous_elt = $(".audio_selector li.selected").prev();
+      if(previous_elt.length == 0){
+        $(".audio_selector li").removeClass("selected");
+        $(".audio_selector li").last().addClass("selected");
+        $(".audio_selector li.selected").trigger("click");
+      }else{
+        $(".audio_selector li").removeClass("selected");
+        $(previous_elt).addClass("selected");
+        $(previous_elt).trigger("click");
+      }
+    });
+
+    $(".audio_chooser .clickers .next").click(function(event){
+      next_elt = $(".audio_selector li.selected").next();
+      if(next_elt.length == 0){
+        $(".audio_selector li").removeClass("selected");
+        $(".audio_selector li").first().addClass("selected");
+        $(".audio_selector li.selected").trigger("click");
+      }else{
+        $(".audio_selector li").removeClass("selected");
+        $(next_elt).addClass("selected");
+        $(next_elt).trigger("click");
+      }
+    });
+
     $(".video_chooser").click(function(event){
       if(!$(this).hasClass("selected")){
         $(".all_selectors").animate({left: "0px"}, 1000);
