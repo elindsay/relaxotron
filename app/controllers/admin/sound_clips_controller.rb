@@ -20,4 +20,9 @@ class Admin::SoundClipsController < AdminController
   def show
     @sound_clip = SoundClip.find_by_slug(params[:id])
   end
+
+  def destroy
+    SoundClip.find(params[:id]).delete
+    redirect_to admin_sound_clips_path, notice: "Sound clip deleted"
+  end
 end

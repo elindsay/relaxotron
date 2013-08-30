@@ -5,7 +5,10 @@
   %h2 Uploaded Sound Clips:
 
   - @sound_clips.each do |sound_clip|
-    = sound_clip.name
-    .clip
-      %audio{controls: true}
-        %source{src: sound_clip.wav.url}
+    .clip_container{syle: "width: 100%;"}
+      .name{style: "width: 100%; clear: left;"}
+        = sound_clip.name
+      .clip{style: "float: left;"}
+        %audio{controls: true}
+          %source{src: sound_clip.wav.url}
+      = button_to "Delete", [:admin, sound_clip], method: :delete, onclick: "return confirm('Delete this clip?')"
