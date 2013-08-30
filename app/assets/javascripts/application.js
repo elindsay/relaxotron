@@ -97,7 +97,9 @@ $(document).ready(function() {
   });
 
   $("video").bind("loadeddata", function(){
-    playCurrent();
+    if(!$(".pause").hasClass("hidden")){
+      playCurrent();
+    }
   });
 
   $(".play_pause .pause").click(function(event){

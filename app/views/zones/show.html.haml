@@ -6,16 +6,6 @@
     %source{src: @sound_clip.wav.url}
   .scroll
     .clickers
-      = link_to video_audio_path(video_slug: @video.previous_video.slug, audio_slug: @sound_clip.slug) do
-        .prev
-          &nbsp;
-      = link_to video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug) do
-        .next
-          &nbsp;
-    .video_name.name
-      Video: 
-      = @video.name
-    .clickers
       = link_to video_audio_path(video_slug: @video.slug, audio_slug: @sound_clip.previous_sound_clip.slug) do
         .prev
           &nbsp;
@@ -25,6 +15,16 @@
     .audio_name.name
       Audio: 
       = @sound_clip.name
+    .clickers
+      = link_to video_audio_path(video_slug: @video.previous_video.slug, audio_slug: @sound_clip.slug) do
+        .prev
+          &nbsp;
+      = link_to video_audio_path(video_slug: @video.next_video.slug, audio_slug: @sound_clip.slug) do
+        .next
+          &nbsp;
+    .video_name.name
+      Video: 
+      = @video.name
     .placidity_logo
       .logo
         .name
@@ -41,10 +41,11 @@
           = link_to "Relaxotron", zones_path
         .option
           = link_to "Home", root_path
-    .pause
-      .bar_one
-        &nbsp;
-      .bar_two
-        &nbsp;
-      .bar_three
-        &nbsp;
+    = link_to zones_path(video: @video.slug, audio: @sound_clip.slug, paused: true) do
+      .pause
+        .bar_one
+          &nbsp;
+        .bar_two
+          &nbsp;
+        .bar_three
+          &nbsp;

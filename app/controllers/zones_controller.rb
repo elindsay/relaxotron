@@ -4,7 +4,9 @@ class ZonesController < ApplicationController
 
   def index
     @zones = Zone.find(:all, order: "rank asc", conditions: "rank IS NOT NULL")
-    @initial_zone = @zones.first
+    @initial_video = Video.find_by_slug(params[:video]) || @zones.first.video
+    @initial_audio = SoundClip.find_by_slug(params[:audio]) || @zones.first.sound_clip
+    @paused = params[:paused]
   end
 
   def show
