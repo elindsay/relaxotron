@@ -14,6 +14,8 @@ class Admin::ZonesController < AdminController
     if @zone.save
       redirect_to admin_zones_path
     else
+      @videos = Video.all
+      @sound_clips = SoundClip.all
       render :new
     end
   end
@@ -30,6 +32,8 @@ class Admin::ZonesController < AdminController
     if @zone.save
       redirect_to admin_zones_path
     else
+      @videos = Video.all
+      @sound_clips = SoundClip.all
       render :edit
     end
   end

@@ -75,7 +75,6 @@ function pauseCurrent(){
   $("audio").trigger("pause");
   $(".play_pause .pause").addClass("hidden");
   $(".play_pause .play").removeClass("hidden");
-  fadeInDistractions();
 }
 
 function fullScreenVideo(){
@@ -99,6 +98,9 @@ $(document).ready(function() {
   $("video").bind("loadeddata", function(){
     if(!$(".pause").hasClass("hidden")){
       playCurrent();
+    }else{
+      playCurrent();
+      pauseCurrent();
     }
   });
 
