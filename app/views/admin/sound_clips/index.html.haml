@@ -11,4 +11,5 @@
       .clip{style: "float: left;"}
         %audio{controls: true}
           %source{src: sound_clip.wav.url}
+      = link_to "Edit", edit_admin_sound_clip_path(sound_clip.id)
       = button_to "Delete", [:admin, sound_clip], method: :delete, onclick: "return confirm('Delete this clip?')"

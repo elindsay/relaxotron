@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   has_attached_file :mp4
   has_attached_file :ogg
   has_attached_file :poster
+  has_many :zones, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :slug, presence: true, uniqueness: true

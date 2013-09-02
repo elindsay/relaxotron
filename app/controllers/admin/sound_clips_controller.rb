@@ -13,6 +13,19 @@ class Admin::SoundClipsController < AdminController
     end
   end
 
+  def edit 
+    @sound_clip = SoundClip.find(params[:id])
+  end
+
+  def create
+    @sound_clip = SoundClip.find(params[:id])
+    if @sound_clip.update_atributes(params[:sound_clip])
+      redirect_to admin_sound_clip_path(params[:id])
+    else
+      render :edit
+    end
+  end
+
   def index
     @sound_clips = SoundClip.all
   end
