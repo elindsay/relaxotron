@@ -19,7 +19,7 @@ class Admin::SoundClipsController < AdminController
 
   def update
     @sound_clip = SoundClip.find(params[:id])
-    if @sound_clip.update_atributes(params[:sound_clip])
+    if @sound_clip.update_attributes(params[:sound_clip])
       redirect_to admin_sound_clip_path(params[:id])
     else
       render :edit
