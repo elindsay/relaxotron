@@ -4,7 +4,10 @@ class Zone < ActiveRecord::Base
   belongs_to :sound_clip
   delegate :mp4, :ogg, :poster, to: :video
   delegate :wav, to: :sound_clip
+
   validate :only_one_ranked_video?
+  validates :video_id, presence: true
+  validates :sound_clip_id, presence: true
 
   def video_slug
     video.slug

@@ -7,7 +7,7 @@ class Admin::SoundClipsController < AdminController
   def create
     @sound_clip = SoundClip.new(params[:sound_clip])
     if @sound_clip.save
-      redirect_to admin_sound_clips_path
+      redirect_to admin_sound_clips_path(@sound_clip.id)
     else
       render :new
     end
@@ -20,7 +20,7 @@ class Admin::SoundClipsController < AdminController
   def update
     @sound_clip = SoundClip.find(params[:id])
     if @sound_clip.update_attributes(params[:sound_clip])
-      redirect_to admin_sound_clip_path(params[:id])
+      redirect_to admin_sound_clip_path(@sound_clip.id)
     else
       render :edit
     end
@@ -31,11 +31,11 @@ class Admin::SoundClipsController < AdminController
   end
 
   def show
-    @sound_clip = SoundClip.find_by_slug(params[:id])
+    @sound_clip = SoundClip.find(params[:id])
   end
 
   def destroy
-    SoundClip.find(params[:id]).delete
+    SoundClip.find(params[:id]).destroy
     redirect_to admin_sound_clips_path, notice: "Sound clip deleted"
   end
 end
