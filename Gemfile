@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'bcrypt-ruby'
 gem "paperclip"
 gem "aws-sdk"
+gem "stripe"
 
 
 group :assets do

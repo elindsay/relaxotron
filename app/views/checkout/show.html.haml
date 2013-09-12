@@ -1,0 +1,6 @@
+CHECKOUT
+Total: 
+= number_to_currency(@price_in_cents/100.0)
+%form{method: "post"}
+  = hidden_field_tag :price_in_cents, @price_in_cents
+  %script{src: "https://checkout.stripe.com/v2/checkout.js", class: "stripe-button", :"data-key" => "pk_test_ZR5ub2OuTpr5ucgDlcGdTPYr", :"data-amount" => @price_in_cents, :"data-name" => "Placidity", :"data-description" => "2 items #{number_to_currency(@price_in_cents/100.0)}", :"data-image" => "/128x128.png"}

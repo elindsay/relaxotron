@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title= title_helper
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = favicon_link_tag "favicon.ico"
+    = csrf_meta_tags
+    %script{type: "text/javascript", src: "//use.typekit.net/cnn7kco.js"}
+    %script{type: "text/javascript"}
+      try{Typekit.load();}catch(e){}
+      
+
+  %body.forrest
+    #header
+      .logo
+        .name
+          = link_to root_path do
+            Placidity
+        .checkout
+          CHECKOUT
+
+      .menu
+        .dropdown
+          = link_to "Relaxotron", zones_path
+        .dropdown
+          = link_to "Articles", articles_path
+        .dropdown
+          = link_to "Forum", "#"
+        .dropdown.full
+          = link_to "Marketplace", "#"
+          .options
+            .blocker
+            .option
+              = link_to "Relaxing Teas", "#"
+            .option
+              = link_to "Sleep Aids", "#"
+            .option
+              = link_to "Aromatherapy", "#"
+
+    .content
+      #flash
+        - flash.each do |key, value|
+          %div{:id => "flash#{key}"}
+            = value
+      .main
+        = yield
+
+
