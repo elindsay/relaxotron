@@ -1,6 +1,20 @@
-.complete
-  Checkout Completed!
-.receipt
-  Your card has been charged
-  = number_to_currency(@price_in_cents/100.0)
-
+.checkout
+  .complete
+    Checkout Completed!
+    = render partial: "products/product", locals: { product: @product, hide_buy: true}
+  .receipt
+    .cost
+      Your card has been charged
+      = number_to_currency(@price_in_cents/100.0)
+    .address
+      This will be shipped to:
+      .name
+        = @name
+      .street
+        = @street
+      .city
+        = @city
+      .state
+        = @state
+      .zip
+        = @zip

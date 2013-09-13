@@ -1,6 +1,7 @@
 class CheckoutController < ApplicationController
   def show
-    @price_in_cents = 500
+    @product = Product.find(params[:product_id])
+    @price_in_cents = @product.price_in_cents
   end
 
   def pay
@@ -22,11 +23,22 @@ class CheckoutController < ApplicationController
     rescue Stripe::CardError => e
       redirect_to "/checkout_problem"
     end
-    redirect_to action: :finished, price_in_cents: params[:price_in_cents]
+    
+    #TODO
+    # notify us of sale
+    # reduce stock count
+    
+    redirect_to action: :finished, price_in_cents: params[:price_in_cents], product_id: params[:product_id], street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
   end
 
   def finished
+    @product = Product.find(params[:product_id])
     @price_in_cents = params[:price_in_cents].to_i
+    @name = params[:name]
+    @street = params[:street]
+    @state = params[:state]
+    @city = params[:city]
+    @zip = params[:zip]
   end
   
   def problem

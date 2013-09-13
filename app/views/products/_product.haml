@@ -1,0 +1,14 @@
+- hide_buy ||= false
+.product
+  .image
+    = image_tag product.image
+  .name
+    = product.name
+  .description
+    = product.description
+  - unless hide_buy
+    .price
+      = number_to_currency(product.price_in_dollars)
+    .buy
+      = link_to "Buy Me!", checkout_path(product_id: product.id)
+
