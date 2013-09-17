@@ -31,7 +31,7 @@ class CheckoutController < ApplicationController
     # notify us of sale
     # reduce stock count
     
-    redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids], street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
+    redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids].split(" "), street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
   end
 
   def finished
