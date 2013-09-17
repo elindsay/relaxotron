@@ -7,4 +7,9 @@ module ApplicationHelper
     reject{|e| e.empty?}.join(" - ")
   end
 
+  def in_shopping_cart?(product)
+    session[:my_cart] ||= []
+    session[:my_cart].include?(product.id.to_s)
+  end
+
 end

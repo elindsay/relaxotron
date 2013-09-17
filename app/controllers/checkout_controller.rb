@@ -1,7 +1,10 @@
 class CheckoutController < ApplicationController
-  def show
-    @product = Product.find(params[:product_id])
-    @price_in_cents = @product.price_in_cents
+  def show_cart
+    @products = Product.where(id: session[:my_cart])
+    if @products.empty?
+      redirect_to products_path
+    end
+    @total_in_cents = @products.sum("price_in_cents")
   end
 
   def pay
@@ -15,7 +18,7 @@ class CheckoutController < ApplicationController
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(
-        :amount => params[:price_in_cents], # amount in cents, again
+        :amount => params[:total_in_cents], # amount in cents, again
         :currency => "usd",
         :card => token,
         :description => "payinguser@example.com"
@@ -28,12 +31,12 @@ class CheckoutController < ApplicationController
     # notify us of sale
     # reduce stock count
     
-    redirect_to action: :finished, price_in_cents: params[:price_in_cents], product_id: params[:product_id], street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
+    redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids], street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
   end
 
   def finished
-    @product = Product.find(params[:product_id])
-    @price_in_cents = params[:price_in_cents].to_i
+    @products = Product.find_all_by_id(params[:product_ids])
+    @total_in_cents = params[:total_in_cents].to_i
     @name = params[:name]
     @street = params[:street]
     @state = params[:state]

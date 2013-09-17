@@ -13,6 +13,9 @@
 
   %body.forrest
     = render partial: 'layouts/header'
+    #shopping_cart
+      .shopping_cart_link
+        = link_to "Shopping Cart #{session[:my_cart] && session[:my_cart].count > 0 ? "(#{session[:my_cart].count})" : ""}", checkout_path
     = render partial: 'layouts/content'
     = render partial: 'layouts/footer'
 

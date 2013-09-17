@@ -1,0 +1,28 @@
+.checkout
+  CHECKOUT
+  - @products.each do |product|
+    = render partial: "products/product", locals: { product: product}
+
+  .total
+    Total: 
+    = number_to_currency(@total_in_cents/100.0)
+  %form{method: "post"}
+    .shipping_address
+      .name
+        = label_tag :name
+        = text_field_tag :name
+      .street
+        = label_tag :street
+        = text_field_tag :street
+      .city
+        = label_tag :city
+        = text_field_tag :city
+      .state
+        = label_tag :state
+        = select_tag :state, options_for_select(["CA", "MA"])
+      .zip
+        = label_tag :zip
+        = text_field_tag :zip
+    = hidden_field_tag :total_in_cents, @total_in_cents
+    = hidden_field_tag :product_ids, @products.map(&:id)
+    %script{src: "https://checkout.stripe.com/v2/checkout.js", class: "stripe-button", :"data-key" => "pk_test_ZR5ub2OuTpr5ucgDlcGdTPYr", :"data-amount" => @total_in_cents, :"data-name" => "Placidity", :"data-description" => "#{pluralize(@products.count, "product")}", :"data-image" => @products.first.image}

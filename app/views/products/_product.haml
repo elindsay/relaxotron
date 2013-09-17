@@ -6,9 +6,12 @@
     = product.name
   .description
     = product.description
+  .price
+    = number_to_currency(product.price_in_dollars)
   - unless hide_buy
-    .price
-      = number_to_currency(product.price_in_dollars)
-    .buy
-      = link_to "Buy Me!", checkout_path(product_id: product.id)
+    .add_to_cart
+      - if in_shopping_cart?(product)
+        = button_to "Remove from Cart", remove_from_cart_path(product_id: product.id), method: :delete
+      - else
+        = button_to "Add to Cart", add_to_cart_path(product_id: product.id), method: :post
 

@@ -1,0 +1,8 @@
+.checkout
+  - @products.each do |product|
+    = render partial: "products/product", locals: {product: product}
+
+  .total
+    Total:
+    = number_to_currency(@total/100.0)
+    = link_to "Checkout!" 

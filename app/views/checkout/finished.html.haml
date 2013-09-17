@@ -1,11 +1,12 @@
 .checkout
   .complete
     Checkout Completed!
-    = render partial: "products/product", locals: { product: @product, hide_buy: true}
+    - @products.each do |product|
+      = render partial: "products/product", locals: { product: product, hide_buy: true}
   .receipt
     .cost
       Your card has been charged
-      = number_to_currency(@price_in_cents/100.0)
+      = number_to_currency(@total_in_cents/100.0)
     .address
       This will be shipped to:
       .name

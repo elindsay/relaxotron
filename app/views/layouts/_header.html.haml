@@ -1,0 +1,23 @@
+#header
+  .logo
+    .name
+      = link_to root_path do
+        Placidity
+
+  .menu
+    .dropdown
+      = link_to "Relaxotron", zones_path
+    .dropdown
+      = link_to "Articles", articles_path
+    .dropdown
+      = link_to "Forum", "#"
+    .dropdown.full
+      = link_to "Marketplace", marketplace_path
+      .options
+        .blocker
+        .option
+          = link_to "Relaxing Teas", "#"
+        .option
+          = link_to "Sleep Aids", "#"
+        .option
+          = link_to "Aromatherapy", "#"
