@@ -24,6 +24,8 @@ class CheckoutController < ApplicationController
         :description => "payinguser@example.com"
       )
     rescue Stripe::CardError => e
+      # Adding product ids back into session, because stripe request will clear the session
+      session[:my_cart] = params[:product_ids].split(" ")
       redirect_to "/checkout_problem"
     end
     
@@ -31,7 +33,9 @@ class CheckoutController < ApplicationController
     # notify us of sale
     # reduce stock count
     
-    redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids].split(" "), street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
+    if e.nil?
+      redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids].split(" "), street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
+    end
   end
 
   def finished
