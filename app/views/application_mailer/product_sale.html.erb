@@ -1,0 +1,26 @@
+<p>
+ You have sold 
+ <%= @product.name %>
+ <%= number_to_currency(@user_info[:total_in_cents].to_i/100.0) %>
+</p>
+<p>
+  Buyer is:
+  <%= @user_info[:name] %>
+  <br />
+  <%= @user_info[:street] %>
+  <br />
+  <%= @user_info[:city] %>
+  <%= @user_info[:state] %>
+  <%= @user_info[:zip] %>
+</p>
+<p>
+  Remaininsg Stock:
+  <%= @product.stock_count %>
+</p>
+
+<%- if @product.stock_count < 1 %>
+  <p>
+    Product will no longer be displayed on website, until stock count updated to be greater than one.
+  </p>
+<%- end %>
+

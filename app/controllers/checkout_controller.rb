@@ -29,12 +29,17 @@ class CheckoutController < ApplicationController
       redirect_to "/checkout_problem"
     end
     
-    #TODO
-    # notify us of sale
-    # reduce stock count
-    
     if e.nil?
-      redirect_to action: :finished, total_in_cents: params[:total_in_cents], product_ids: params[:product_ids].split(" "), street: params[:street], city: params[:city], state: params[:state], name: params[:name], zip: params[:zip]
+      #sale went through
+      product_ids = params[:product_ids].split(" ")
+      products = Product.find(product_ids)
+      user_info = {name: params[:name], street: params[:street], city: params[:city], zip: params[:zip], state: params[:state], total_in_cents: params[:total_in_cents]}
+
+      #update count, and notify of sale
+      products.each do |p| 
+        p.sale_callback(user_info)
+      end
+      redirect_to checkout_finished_path(user_info.merge(product_ids: product_ids))
     end
   end
 
