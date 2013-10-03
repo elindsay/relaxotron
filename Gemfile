@@ -9,6 +9,9 @@ gem "paperclip"
 gem "aws-sdk"
 gem "stripe"
 
+group :development, :test  do
+    gem 'mailcatcher'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
