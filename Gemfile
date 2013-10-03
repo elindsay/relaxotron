@@ -8,7 +8,6 @@ gem 'bcrypt-ruby'
 gem "paperclip"
 gem "aws-sdk"
 gem "stripe"
-gem "mailcatcher", group: [:development]
 
 
 group :assets do
