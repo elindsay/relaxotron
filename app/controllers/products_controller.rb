@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.where("stock_count > ?", 1)
+    @products = Product.all
   end
 end

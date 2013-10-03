@@ -2,5 +2,5 @@
   %h2
     Marketplace
   .product_list
-    - @products.each do |product|
+    - Product.all.each do |product|
       = render partial: "product", locals: { product: product }
