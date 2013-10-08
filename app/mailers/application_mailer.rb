@@ -1,7 +1,9 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "emma@ejlindsay.com"
+  default from: "automated@placidity.com"
 
-  def example_email(email)
-    mail(to: email, subject: "TEST")
+  def product_sale(product, user_info)
+    @product = product
+    @user_info = user_info
+    mail(to: "emma@placidity.com", subject: "Sold: #{@product.name}")
   end
 end

@@ -3,7 +3,7 @@ Relaxotron::Application.routes.draw do
   get 'video(/:video_slug)(/audio/:audio_slug)' => "zones#show", as: "video_audio"
   get 'checkout' => 'checkout#show_cart', as: "checkout"
   post 'checkout' => 'checkout#pay'
-  get 'checkout_complete' => 'checkout#finished'
+  get 'checkout_complete' => 'checkout#finished', as: "checkout_finished"
   get 'checkout_problem' => 'checkout#problem'
   get 'marketplace' => 'products#index', as: 'marketplace'
   post 'add_to_cart' => 'shopping_carts#add_to_cart', as: "add_to_cart"
