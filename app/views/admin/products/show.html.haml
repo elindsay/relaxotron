@@ -1,0 +1,21 @@
+= render partial: "/products/product", locals: { product: @product, hide_buy: true } 
+.edit_link
+  = link_to "EDIT", edit_admin_product_path(@product)
+.stock_count
+  NUMBER LEFT:
+  = @product.stock_count
+.number_sales
+  NUMBER SOLD:
+  = @product.sale_count
+- if @product.sales.count > 0
+  .sale_title
+    SOLD TO:
+  .sales_list
+    %ul
+      - @product.sales.each do |sale|
+        %li
+          = sale.name
+          = sale.street
+          = sale.city
+          = sale.state
+          = sale.zip

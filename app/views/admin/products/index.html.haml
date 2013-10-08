@@ -1,0 +1,21 @@
+.product_index
+  .create_new
+    = link_to "CREATE NEW PRODUCT", new_admin_product_path
+  .title
+    .name
+      Name
+    .stock_count
+      Stock Count
+    .sale_count
+      Sale Count
+  - @products.each_with_index do |p, i|
+    .product{class: i.even? ? "even": "odd"}
+      .name
+        = p.name
+      .stock_count
+        = p.stock_count
+      .sale_count
+        = p.sale_count
+      .more_info
+        = link_to "More Info", admin_product_path(p)
+
