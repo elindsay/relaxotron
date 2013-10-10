@@ -11,7 +11,7 @@
   - unless hide_buy
     .add_to_cart
       - if in_shopping_cart?(product)
-        = button_to "Remove from Cart", remove_from_cart_path(product_id: product.id), method: :delete
+        = button_to "Remove from Cart", remove_from_cart_path(product_id: product.id), method: :delete, class: "cart_button"
       - else
-        = button_to "Add to Cart", add_to_cart_path(product_id: product.id), method: :post
+        = button_to "Add to Cart", add_to_cart_path(product_id: product.id), method: :post, class: "cart_button"
 

@@ -1,3 +1,6 @@
+@import "base"
+$text-green: #007700
+
 .marketplace, .checkout
   font-family: Helvetica, sans-serif
   h2
@@ -18,3 +21,31 @@
       font-style: italic
   .total
     margin-top: 15px
+
+.product_list
+  .product_column
+    float: left
+    width: 320px
+  .product 
+    border: 1px solid #ccc
+    padding: 5px
+    margin: 3px
+    float: left
+    .description
+      padding: 5px 0px
+    .price
+      padding-top: 5px
+      float: left
+      font-size: 18px
+    .cart_button
+      float: right
+      margin-right: 10px
+      border: none
+      background-color: transparent
+      font-family: Helvetica, sans-serif
+      font-size: 18px
+      color: $text-green
+      cursor: pointer
+      &:hover
+        text-decoration: underline
+        

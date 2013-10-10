@@ -2,5 +2,7 @@
   %h2
     Marketplace
   .product_list
-    - @products.each do |product|
-      = render partial: "product", locals: { product: product }
+    - @product_matrix.each do |product_column|
+      .product_column
+        - product_column.each do |product|
+          = render partial: "product", locals: { product: product }
