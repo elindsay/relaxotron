@@ -1,7 +1,7 @@
 .checkout
   CHECKOUT
   - @products.each do |product|
-    = render partial: "products/product", locals: { product: product}
+    = render partial: "products/product", locals: { product: product, show_remove: true, hide_buy: true}
 
   .total
     Total: 

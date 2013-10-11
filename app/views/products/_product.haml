@@ -1,4 +1,5 @@
 - hide_buy ||= false
+- show_remove ||= false
 .product
   .image
     = image_tag product.image
@@ -8,10 +9,14 @@
     = product.description
   .price
     = number_to_currency(product.price_in_dollars)
+    - if in_shopping_cart?(product)
+      = "- in cart"
   - unless hide_buy
     .add_to_cart
       - if in_shopping_cart?(product)
-        = button_to "Remove from Cart", remove_from_cart_path(product_id: product.id), method: :delete, class: "cart_button"
+        = button_to "See Cart", checkout_path, method: :get, class: "cart_button"
       - else
         = button_to "Add to Cart", add_to_cart_path(product_id: product.id), method: :post, class: "cart_button"
+  - if show_remove
+    = button_to "Remove from Cart", remove_from_cart_path(product_id: product.id), method: :delete, class: "cart_button"
 
