@@ -18,9 +18,11 @@ class Product < ActiveRecord::Base
 
   def sale_callback(user_info)
     self.stock_count -= 1
-    self.sales.create(user_info)
-    self.save
+    product_info = user_info.clone
+    product_info.delete(:total_in_cents)
+    self.sales.create(product_info)
     ApplicationMailer.product_sale(self, user_info).deliver
+    self.save
   end
 
 end
