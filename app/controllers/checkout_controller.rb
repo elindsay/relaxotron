@@ -10,6 +10,7 @@ class CheckoutController < ApplicationController
   def pay
     # Get the credit card details submitted by the form
     token = params[:stripeToken]
+    product_ids = params[:product_ids].split(" ")
 
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
@@ -17,7 +18,7 @@ class CheckoutController < ApplicationController
         :amount => params[:total_in_cents], # amount in cents, again
         :currency => "usd",
         :card => token,
-        :description => "payinguser@example.com"
+        :description => "Products: #{product_ids}"
       )
     rescue Stripe::CardError => e
       # Adding product ids back into session, because stripe request will clear the session
@@ -27,8 +28,7 @@ class CheckoutController < ApplicationController
     
     if e.nil?
       #sale went through
-      product_ids = params[:product_ids].split(" ")
-      products = Product.find(product_ids)
+       products = Product.find(product_ids)
       user_info = {name: params[:name], street: params[:street], city: params[:city], zip: params[:zip], state: params[:state], total_in_cents: params[:total_in_cents]}
 
       #update count, and notify of sale
