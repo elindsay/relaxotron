@@ -1,4 +1,7 @@
 Problem with Checkout - your card has not been charged. Please email emma@placidity.com
 
 %p
-  = e.messages
+  %span{style: "font-style: italic;"}
+    Message:
+  %span
+    = @error_message

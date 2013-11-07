@@ -26,7 +26,7 @@ class CheckoutController < ApplicationController
     rescue Stripe::CardError => e
       # Adding product ids back into session, because stripe request will clear the session
       session[:my_cart] = params[:product_ids].split(" ")
-      redirect_to "/checkout_problem", error: e
+      redirect_to "/checkout_problem?error_message=#{e.message}"
     end
     
     if e.nil?
@@ -54,6 +54,6 @@ class CheckoutController < ApplicationController
   end
   
   def problem
-    @error = error
+    @error_message = params[:error_message]
   end
 end
