@@ -8,10 +8,6 @@ class CheckoutController < ApplicationController
   end
 
   def pay
-    # Set your secret key: remember to change this to your live secret key in production
-    # See your keys here https://manage.stripe.com/account
-    Stripe.api_key = "sk_test_9aKZdwLrYgU7IEpexI6yvw8E"
-
     # Get the credit card details submitted by the form
     token = params[:stripeToken]
 
@@ -26,7 +22,7 @@ class CheckoutController < ApplicationController
     rescue Stripe::CardError => e
       # Adding product ids back into session, because stripe request will clear the session
       session[:my_cart] = params[:product_ids].split(" ")
-      redirect_to "/checkout_problem?error_message=#{e.message}"
+      redirect_to "/checkout_problem?error_message=#{CGI.escape(e.message)}"
     end
     
     if e.nil?
