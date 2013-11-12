@@ -15,15 +15,13 @@
         = image_tag @article_one.article_picture.image
         .large
           = @article_one.title
-  .option_two
     = link_to article_path(@article_two) do
       .option_two
         = image_tag @article_two.article_picture.image
         .large
           = @article_two.title
-  .option_three
     = link_to article_path(@article_three) do
-      .option_two
+      .option_three
         = image_tag @article_three.article_picture.image
         .large
           = @article_three.title
