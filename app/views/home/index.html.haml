@@ -15,15 +15,15 @@
         = image_tag @article_one.article_picture.image
         .large
           = @article_one.title
-    .option_two
-      = image_tag "demo/fish.jpg"
-      .large
-        Compassion for All Creatures
-      .small
-        How the act of giving can improve your happiness more than the act of taking.
-    .option_three
-      = image_tag "demo/snow.jpg"
-      .large
-        Surviving the Winter
-      .small
-        Learning to handle life's struggles with equanimity and grace.
+  .option_two
+    = link_to article_path(@article_two) do
+      .option_two
+        = image_tag @article_two.article_picture.image
+        .large
+          = @article_two.title
+  .option_three
+    = link_to article_path(@article_three) do
+      .option_two
+        = image_tag @article_three.article_picture.image
+        .large
+          = @article_three.title
