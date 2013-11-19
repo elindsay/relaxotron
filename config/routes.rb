@@ -14,6 +14,9 @@ Relaxotron::Application.routes.draw do
   resources :articles
   resources :products
 
+  #static routes
+  get 'massage' => "static_pages#massage"
+
   namespace :admin do
     root to: "home#index"
     resources :home, only: [:index]
